@@ -26,6 +26,8 @@ body {
     radial-gradient(circle at top, #fff7f2, #fffaf8 45%, #ffffff);
 }
 h1 {
-  color: gold;
-  font-size: 50px;
+  color: #b8860b;
+  font-size: 38px;
+  letter-spacing: 1px;
+  animation: aparecer 2s ease-in-out;
 }
