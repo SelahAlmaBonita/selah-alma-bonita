@@ -25,3 +25,7 @@ body {
   background:
     radial-gradient(circle at top, #fff7f2, #fffaf8 45%, #ffffff);
 }
+h1 {
+  color: gold;
+  font-size: 50px;
+}
