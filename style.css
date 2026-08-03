@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Georgia", serif;
+  background: #fffaf8;
+  color: #6b4b3e;
+  text-align: center;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.logo {
+  width: 180px;
+  max-width: 80%;
+}
+
+h1 {
+  color: #b8860b;
+  font-size: 38px;
+  margin-top: 20px;
+}
+
+.frase {
+  font-size: 20px;
+  font-style: italic;
+  color: #8b5e3c;
+}
+
+.mensaje {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.botones button {
+  display: block;
+  width: 90%;
+  max-width: 350px;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 30px;
+  border: none;
+  background: #d4af37;
+  color: white;
+  font-size: 17px;
+}
