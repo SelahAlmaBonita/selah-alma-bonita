@@ -31,3 +31,12 @@ h1 {
   letter-spacing: 1px;
   animation: aparecer 2s ease-in-out;
 }
+h1 {
+  color: #b8860b;
+  font-size: 32px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+  animation: aparecer 2s ease-in-out;
+}
