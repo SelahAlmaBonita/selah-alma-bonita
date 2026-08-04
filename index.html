@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="format-detection" content="telephone=no">
 
 <title>Selah Alma Bonita</title>
 
@@ -14,381 +10,92 @@
 
 </head>
 
-
 <body>
+
+<!-- Música Selah -->
+<div class="musica">
+    <button id="btnMusica">🎵</button>
+
+    <audio id="musicaSelah" loop>
+        <source src="audio/musica-selah.mp3" type="audio/mpeg">
+    </audio>
+</div>
 
 
 <div class="contenedor">
 
-
 <img src="logo.png" alt="Selah Alma Bonita" class="logo">
-
 
 <h1>
 Selah
 <span>Alma Bonita</span>
 </h1>
 
-
 <p class="frase">
 Detente, respira, sana y florece
 </p>
 
 
-
 <div class="tarjeta">
 
-<h2>
-🌸 Bienvenida, 
-<span id="nombrePaciente">Paciente</span>
-</h2>
-
+<h2>🌸 Bienvenida</h2>
 
 <p class="saludo">
 Nos llena de alegría recibirte.
 </p>
 
 
-
 <div class="cita">
 
-<h3>
-Tu próxima cita
-</h3>
+<h3>Tu próxima cita</h3>
 
+<p id="fechaCita">📅 Fecha de tu cita</p>
 
-<p>
-📅 <span id="fechaCita">Fecha pendiente</span>
-</p>
+<p id="horaCita">🕙 Hora de tu cita</p>
 
-
-<p>
-🕙 <span id="horaCita">Hora pendiente</span>
-</p>
-
-
-<p>
-⏱ Duración:
-<span id="duracionCita">60 minutos</span>
-</p>
-
+<p id="duracionCita">⏱️ Duración: 60 minutos</p>
 
 </div>
 
 </div>
-
-
-
-
-
-<div class="tarjeta">
-
-
-<h2>
-🌿 Tu experiencia Selah
-</h2>
-
-
-<p>
-✅ Cita agendada
-</p>
-
-
-<p>
-🟡 Próxima sesión
-</p>
-
-
-<p>
-⬜ Seguimiento
-</p>
-
-
-</div>
-
-
-
 
 
 <div class="mensaje">
 
-✨ Preparando tu mensaje del día...
+✨ Hoy elegiste regalarte un momento para ti.
 
 </div>
-
-
-
-
-
-<div class="tarjeta">
-
-
-<h2>
-🌸 Recomendaciones para tu sesión
-</h2>
-
-
-<p>
-💧 Mantente hidratada.
-</p>
-
-
-<p>
-👕 Usa ropa cómoda.
-</p>
-
-
-<p>
-⏰ Llega 10 minutos antes.
-</p>
-
-
-</div>
-
-
-
-
-
 
 
 <div class="botones">
 
-
-
 <button id="btnMapa">
-
 📍 Cómo llegar
-
-<br>
-
-<small>
-Encuentra nuestra ubicación
-</small>
-
 </button>
-
-
-
 
 <button id="btnWhatsApp">
-
 💬 Confirmar asistencia
-
-<br>
-
-<small>
-Envía tu confirmación
-</small>
-
 </button>
-
-
-
-
 
 <button id="btnCalendario">
-
-📅 Agregar al calendario
-
-<br>
-
-<small>
-Guarda tu cita
-</small>
-
+📅 Agregar a mi calendario
 </button>
-
-
-
-
 
 <button id="btnPago">
-
 💳 Formas de pago
-
-<br>
-
-<small>
-Consulta datos bancarios
-</small>
-
 </button>
-
-
-
-
 
 <button id="btnResena">
-
 ⭐ Compartir mi experiencia
-
-<br>
-
-<small>
-Déjanos tu opinión
-</small>
-
 </button>
 
+</div>
 
 
 </div>
 
 
-
-
-
-
-
-
-<div id="pagoBox" class="tarjeta oculta">
-
-
-
-<h2>
-💳 Formas de pago
-</h2>
-
-
-
-
-
-<p>
-🏦 Banco:
-<br>
-
-<strong>
-Banorte
-</strong>
-
-</p>
-
-
-
-
-
-<p>
-👤 Titular:
-<br>
-
-<strong>
-Adriana Itzel Guzmán Alarcón
-</strong>
-
-</p>
-
-
-
-
-
-<p>
-📄 Cuenta Banorte:
-<br>
-
-<strong id="cuenta">
-1220403183
-</strong>
-
-</p>
-
-
-
-
-<button id="copiarCuenta">
-
-📋 Copiar cuenta
-
-</button>
-
-
-
-
-
-
-
-<p>
-🔑 CLABE interbancaria:
-<br>
-
-<strong id="clabe">
-072028012204031831
-</strong>
-
-</p>
-
-
-
-
-
-<button id="copiarClabe">
-
-📋 Copiar CLABE
-
-</button>
-
-
-
-
-
-<p>
-
-Después de realizar tu pago,
-envía tu comprobante por WhatsApp.
-
-🌸
-
-</p>
-
-
-
-
-
-<button id="enviarComprobante">
-
-💬 Enviar comprobante
-
-</button>
-
-
-
-
-
-<button id="cerrarPago">
-
-❌ Cerrar
-
-</button>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-<!-- Música Selah Alma Bonita -->
-<div class="musica">
-    <button id="btnMusica">
-        🎵 Activar música
-    </button>
-
-    <audio id="musicaSelah" loop>
-        <source src="audio/musica-selah.mp3" type="audio/mpeg">
-    </audio>
-</div>
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
