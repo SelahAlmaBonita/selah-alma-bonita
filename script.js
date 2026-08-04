@@ -306,3 +306,36 @@ if(btnMusica && musicaSelah){
     };
 
 }
+// ===============================
+// PÉTALOS SELAH ALMA BONITA
+// ===============================
+
+const contenedorPetalos = document.querySelector(".petalos");
+
+if(contenedorPetalos){
+
+    const simbolos = ["🌸","🌺","✿"];
+
+    for(let i = 0; i < 12; i++){
+
+        const petalo = document.createElement("div");
+
+        petalo.className = "petalo";
+
+        petalo.innerHTML =
+        simbolos[Math.floor(Math.random()*simbolos.length)];
+
+        petalo.style.left =
+        Math.random()*100 + "%";
+
+        petalo.style.animationDelay =
+        Math.random()*10 + "s";
+
+        petalo.style.fontSize =
+        (15 + Math.random()*15) + "px";
+
+        contenedorPetalos.appendChild(petalo);
+
+    }
+
+}
