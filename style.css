@@ -1,52 +1,99 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Georgia", serif;
-  background: #fffaf8;
-  color: #6b4b3e;
-  text-align: center;
+body{
+margin:0;
+padding:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(to bottom,#fffdfb,#fff7f2,#ffffff);
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+color:#5c4a3d;
 }
 
-.app {
-  min-height: 100vh;
-  padding: 40px 20px;
+.contenedor{
+width:90%;
+max-width:420px;
+text-align:center;
+padding:25px;
 }
 
-.logo {
-  width: 180px;
-  max-width: 80%;
+.logo{
+width:190px;
+max-width:80%;
+margin-bottom:15px;
+animation:aparecer 1.5s ease;
 }
 
-h1 {
-  color: #b8860b;
-  font-size: 38px;
-  margin-top: 20px;
+h1{
+margin:0;
+font-size:38px;
+font-weight:300;
+color:#b8860b;
+line-height:1.1;
 }
 
-.frase {
-  font-size: 20px;
-  font-style: italic;
-  color: #8b5e3c;
+h1 span{
+display:block;
+font-size:30px;
+font-weight:600;
+color:#8d6e63;
 }
 
-.mensaje {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
-  margin: 30px auto;
-  max-width: 400px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+.frase{
+margin-top:12px;
+font-style:italic;
+color:#9c7d5d;
 }
 
-.botones button {
-  display: block;
-  width: 90%;
-  max-width: 350px;
-  margin: 15px auto;
-  padding: 15px;
-  border-radius: 30px;
-  border: none;
-  background: #d4af37;
-  color: white;
-  font-size: 17px;
+.tarjeta{
+background:white;
+border-radius:22px;
+padding:20px;
+margin-top:25px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.tarjeta h2{
+margin-top:0;
+color:#b8860b;
+}
+
+.cita{
+margin-top:18px;
+padding:15px;
+border-radius:15px;
+background:#fff8f0;
+}
+
+.mensaje{
+margin:25px 0;
+font-size:17px;
+line-height:1.6;
+}
+
+.botones button{
+width:100%;
+padding:15px;
+margin:8px 0;
+border:none;
+border-radius:15px;
+background:#d4af37;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.botones button:hover{
+opacity:.9;
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
