@@ -1,84 +1,112 @@
 // ===============================
-// DATOS EDITABLES DEL PACIENTE
-// SOLO CAMBIA ESTA PARTE
+// DATOS DE LA CITA
 // ===============================
 
-const paciente = {
-    nombre: "Blanca Margarita Alarcón",
-    fecha: "04 de Agosto",
-    hora: "5:00 pm",
+const cita = {
+    nombre: "",
+    fecha: "08 de agosto",
+    hora: "5:00 p. m.",
     duracion: "60 minutos"
 };
 
 
 // ===============================
-// MOSTRAR DATOS DEL PACIENTE
+// MOSTRAR DATOS DE CITA
 // ===============================
 
-const nombrePaciente = document.getElementById("nombrePaciente");
 const fechaCita = document.getElementById("fechaCita");
 const horaCita = document.getElementById("horaCita");
 const duracionCita = document.getElementById("duracionCita");
 
+if(fechaCita){
+    fechaCita.innerHTML = "📅 " + cita.fecha;
+}
 
-if(nombrePaciente) nombrePaciente.textContent = paciente.nombre;
-if(fechaCita) fechaCita.textContent = paciente.fecha;
-if(horaCita) horaCita.textContent = paciente.hora;
-if(duracionCita) duracionCita.textContent = paciente.duracion;
+if(horaCita){
+    horaCita.innerHTML = "🕙 " + cita.hora;
+}
 
-
-
-// ===============================
-// MENSAJE DEL DÍA
-// ===============================
-
-const mensajes = [
-"Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
-"Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
-"Tu bienestar también merece un espacio en tu agenda.",
-"Respira profundo. Hoy es un buen día para cuidar de ti."
-];
-
-
-const mensajeDiv = document.querySelector(".mensaje");
-
-
-if(mensajeDiv){
-
-mensajeDiv.innerHTML =
-"✨ " + mensajes[Math.floor(Math.random()*mensajes.length)];
-
+if(duracionCita){
+    duracionCita.innerHTML = "⏱️ Duración: " + cita.duracion;
 }
 
 
-
 // ===============================
-// WHATSAPP CONFIRMAR ASISTENCIA
+// MENSAJES SELAH (30 DÍAS)
+// ===============================
+
+const mensajes = [
+"Hoy elegiste regalarte un momento para ti. 🌸",
+"Respira profundo, tu bienestar también merece espacio.",
+"Cada pequeño paso hacia ti es una forma de amor.",
+"Tu cuerpo merece cuidado, escucha y descanso.",
+"Hoy es un buen día para florecer.",
+"Permítete recibir bienestar y calma.",
+"Tu proceso merece paciencia y amor.",
+"Regálate un momento de conexión contigo.",
+"Tu bienestar comienza con una decisión.",
+"Que hoy encuentres paz en cada respiración.",
+"Cuida tu cuerpo, honra tu camino.",
+"Cada sesión es una oportunidad de reconectar.",
+"Tu bienestar es una prioridad.",
+"Confía en tu proceso.",
+"Respira, suelta y permite sanar.",
+"Hoy eliges cuidarte.",
+"Tu cuerpo tiene sabiduría.",
+"Un momento para ti puede transformar tu día.",
+"La calma también es medicina.",
+"Escucharte es un acto de amor.",
+"Pequeños cambios crean grandes resultados.",
+"Tu bienestar florece paso a paso.",
+"Gracias por confiar en Selah Alma Bonita.",
+"Que esta sesión sea un espacio de paz.",
+"Hoy mereces sentirte bien.",
+"Tu energía merece cuidado.",
+"Cada día es una nueva oportunidad.",
+"Con amor y paciencia todo proceso florece.",
+"Regálate calma, presencia y bienestar.",
+"Que Selah sea un momento para ti."
+];
+
+const mensajeDiv = document.querySelector(".mensaje");
+
+if(mensajeDiv){
+
+    const dia = new Date().getDate();
+
+    mensajeDiv.innerHTML =
+    "✨ " + mensajes[dia % mensajes.length];
+
+}
+// ===============================
+// BOTÓN WHATSAPP
 // ===============================
 
 const btnWhatsApp = document.getElementById("btnWhatsApp");
 
-
 if(btnWhatsApp){
 
-btnWhatsApp.onclick = () => {
+    btnWhatsApp.onclick = () => {
 
-const texto =
+        const texto =
 `Hola Adriana 🌸
 
-Soy ${paciente.nombre}.
+Confirmo mi asistencia para mi cita.
 
-Confirmo mi asistencia para mi cita del ${paciente.fecha} a las ${paciente.hora}.`;
+Fecha: ${cita.fecha}
+Hora: ${cita.hora}
 
-window.open(
-`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
-"_blank"
-);
+Gracias.`;
 
-};
+        const url =
+        "https://wa.me/5216642198335?text=" +
+        encodeURIComponent(texto);
+
+        window.open(url,"_blank");
+
+    };
 
 }
-
 
 
 // ===============================
@@ -87,20 +115,18 @@ window.open(
 
 const btnMapa = document.getElementById("btnMapa");
 
-
 if(btnMapa){
 
-btnMapa.onclick = () => {
+    btnMapa.onclick = () => {
 
-window.open(
-"https://maps.app.goo.gl/nvW6SGQAr4T17DMW7?g_st=ic",
-"_blank"
-);
+        window.open(
+        "https://maps.app.goo.gl/nvW6SGQAr4T17DMW7",
+        "_blank"
+        );
 
-};
+    };
 
 }
-
 
 
 // ===============================
@@ -108,176 +134,95 @@ window.open(
 // ===============================
 
 const btnPago = document.getElementById("btnPago");
-const pagoBox = document.getElementById("pagoBox");
-
 
 if(btnPago){
 
-btnPago.onclick = () => {
+    btnPago.onclick = () => {
 
-pagoBox.classList.remove("oculta");
+        alert(
+`🌸 SELAH ALMA BONITA
 
-};
+Banco:
+Banorte
 
-}
+Titular:
+Adriana Itzel Guzmán Alarcón
 
+Cuenta:
+1220403183
 
-const cerrarPago = document.getElementById("cerrarPago");
+CLABE:
+072028012204031831
 
+Después de realizar tu pago puedes enviar tu comprobante por WhatsApp. 💗`
+        );
 
-if(cerrarPago){
-
-cerrarPago.onclick = () => {
-
-pagoBox.classList.add("oculta");
-
-};
-
-}
-
-
-
-// ===============================
-// COPIAR CUENTA
-// ===============================
-
-const copiarCuenta =
-document.getElementById("copiarCuenta");
-
-
-if(copiarCuenta){
-
-copiarCuenta.onclick = () => {
-
-const cuenta =
-document.getElementById("cuenta").innerText;
-
-
-navigator.clipboard.writeText(cuenta);
-
-
-alert("Cuenta Banorte copiada 🌸");
-
-};
+    };
 
 }
 
 
-
 // ===============================
-// COPIAR CLABE
+// COPIAR DATOS
 // ===============================
 
-const copiarClabe =
-document.getElementById("copiarClabe");
+function copiarTexto(texto){
 
+    navigator.clipboard.writeText(texto);
 
-if(copiarClabe){
-
-copiarClabe.onclick = () => {
-
-const clabe =
-document.getElementById("clabe").innerText;
-
-
-navigator.clipboard.writeText(clabe);
-
-
-alert("CLABE copiada 🌸");
-
-};
+    alert("✨ Copiado correctamente");
 
 }
-
-
-
 // ===============================
-// ENVIAR COMPROBANTE
+// CALENDARIO
 // ===============================
 
-const enviarComprobante =
-document.getElementById("enviarComprobante");
+const btnCalendario = document.getElementById("btnCalendario");
 
+if(btnCalendario){
 
-if(enviarComprobante){
+    btnCalendario.onclick = () => {
 
-enviarComprobante.onclick = () => {
+        alert(
+`📅 Próximamente podrás agregar tu cita al calendario.
 
-const texto =
-`Hola Adriana 🌸
+Fecha:
+${cita.fecha}
 
-Te envío mi comprobante de pago.
+Hora:
+${cita.hora}
 
-Paciente:
-${paciente.nombre}`;
+Duración:
+${cita.duracion}`
+        );
 
-
-window.open(
-`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
-"_blank"
-);
-
-};
+    };
 
 }
-
 
 
 // ===============================
 // RESEÑA
 // ===============================
 
-const btnResena =
-document.getElementById("btnResena");
-
+const btnResena = document.getElementById("btnResena");
 
 if(btnResena){
 
-btnResena.onclick = () => {
+    btnResena.onclick = () => {
 
-const texto =
-"Hola Adriana 🌸 Me gustaría compartir mi experiencia con Selah Alma Bonita.";
+        window.open(
+        "https://wa.me/5216642198335?text=Hola%20Adriana.%20Quiero%20compartir%20mi%20experiencia.",
+        "_blank"
+        );
 
-
-window.open(
-`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
-"_blank"
-);
-
-};
+    };
 
 }
 
 
-
 // ===============================
-// CALENDARIO
-// ===============================
-
-const btnCalendario =
-document.getElementById("btnCalendario");
-
-
-if(btnCalendario){
-
-btnCalendario.onclick = () => {
-
-alert(
-`📅 Tu cita:
-
-${paciente.fecha}
-
-${paciente.hora}
-
-Duración:
-${paciente.duracion}`
-);
-
-};
-
-}
-// ===============================
-// MÚSICA SELAH ALMA BONITA
+// MÚSICA
 // ===============================
 
 const btnMusica = document.getElementById("btnMusica");
@@ -285,57 +230,30 @@ const musicaSelah = document.getElementById("musicaSelah");
 
 if(btnMusica && musicaSelah){
 
-    btnMusica.onclick = () => {
+    btnMusica.onclick = async () => {
 
-        if(musicaSelah.paused){
+        try{
 
-            musicaSelah.play();
+            if(musicaSelah.paused){
 
-            btnMusica.innerHTML =
-            "⏸️ Pausar música";
+                await musicaSelah.play();
 
-        } else {
+                btnMusica.innerHTML = "⏸️";
 
-            musicaSelah.pause();
+            }else{
 
-            btnMusica.innerHTML =
-            "🎵 Activar música";
+                musicaSelah.pause();
+
+                btnMusica.innerHTML = "🎵";
+
+            }
+
+        }catch(error){
+
+            console.log("No fue posible reproducir el audio.", error);
 
         }
 
     };
-
-}
-// ===============================
-// PÉTALOS SELAH ALMA BONITA
-// ===============================
-
-const contenedorPetalos = document.querySelector(".petalos");
-
-if(contenedorPetalos){
-
-    const simbolos = ["🌸","🌺","✿"];
-
-    for(let i = 0; i < 12; i++){
-
-        const petalo = document.createElement("div");
-
-        petalo.className = "petalo";
-
-        petalo.innerHTML =
-        simbolos[Math.floor(Math.random()*simbolos.length)];
-
-        petalo.style.left =
-        Math.random()*100 + "%";
-
-        petalo.style.animationDelay =
-        Math.random()*10 + "s";
-
-        petalo.style.fontSize =
-        (15 + Math.random()*15) + "px";
-
-        contenedorPetalos.appendChild(petalo);
-
-    }
 
 }
