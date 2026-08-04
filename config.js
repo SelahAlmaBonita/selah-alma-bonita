@@ -11,7 +11,7 @@ const CONFIG = {
 
     paciente:{
 
-        nombre:"",
+        nombre:"Blanca Margarita",
 
         categoria:"adulto",
         // adulto | adolescente | niño
