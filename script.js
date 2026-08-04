@@ -1,11 +1,12 @@
 // ===============================
-// DATOS DEL PACIENTE
+// DATOS EDITABLES DEL PACIENTE
+// SOLO CAMBIA ESTA PARTE
 // ===============================
 
 const paciente = {
-    nombre: "Sheyla Maery",
-    fecha: "Miércoles 05 de agosto",
-    hora: "10:00 a. m.",
+    nombre: "Nombre del paciente",
+    fecha: "Día y fecha de la cita",
+    hora: "Hora de la cita",
     duracion: "60 minutos"
 };
 
@@ -14,10 +15,34 @@ const paciente = {
 // MOSTRAR DATOS DEL PACIENTE
 // ===============================
 
-document.getElementById("nombrePaciente").textContent = paciente.nombre;
-document.getElementById("fechaCita").textContent = paciente.fecha;
-document.getElementById("horaCita").textContent = paciente.hora;
-document.getElementById("duracionCita").textContent = paciente.duracion;
+const nombrePaciente =
+document.getElementById("nombrePaciente");
+
+const fechaCita =
+document.getElementById("fechaCita");
+
+const horaCita =
+document.getElementById("horaCita");
+
+const duracionCita =
+document.getElementById("duracionCita");
+
+
+if(nombrePaciente){
+    nombrePaciente.textContent = paciente.nombre;
+}
+
+if(fechaCita){
+    fechaCita.textContent = paciente.fecha;
+}
+
+if(horaCita){
+    horaCita.textContent = paciente.hora;
+}
+
+if(duracionCita){
+    duracionCita.textContent = paciente.duracion;
+}
 
 
 
@@ -26,11 +51,17 @@ document.getElementById("duracionCita").textContent = paciente.duracion;
 // ===============================
 
 const mensajes = [
-    "Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
-    "Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
-    "Tu bienestar también merece un espacio en tu agenda.",
-    "Respira profundo. Hoy es un buen día para cuidar de ti.",
-    "Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
+
+"Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
+
+"Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
+
+"Tu bienestar también merece un espacio en tu agenda.",
+
+"Respira profundo. Hoy es un buen día para cuidar de ti.",
+
+"Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
+
 ];
 
 
@@ -38,11 +69,15 @@ const mensajeAleatorio =
 mensajes[Math.floor(Math.random()*mensajes.length)];
 
 
-const mensajeDiv = document.querySelector(".mensaje");
+const mensajeDiv =
+document.querySelector(".mensaje");
 
 
 if(mensajeDiv){
-    mensajeDiv.innerHTML = "✨ " + mensajeAleatorio;
+
+mensajeDiv.innerHTML =
+"✨ " + mensajeAleatorio;
+
 }
 
 
@@ -128,8 +163,6 @@ pagoBox.classList.remove("oculta");
 
 
 
-// CERRAR PAGOS
-
 const cerrarPago =
 document.getElementById("cerrarPago");
 
@@ -168,6 +201,7 @@ navigator.clipboard.writeText(clabe);
 
 alert("CLABE copiada correctamente 🌸");
 
+
 };
 
 }
@@ -195,6 +229,7 @@ navigator.clipboard.writeText(cuenta);
 
 
 alert("Cuenta Banorte copiada correctamente 🌸");
+
 
 };
 
@@ -250,7 +285,9 @@ btnResena.onclick = () => {
 
 
 const texto =
-"Hola Adriana 🌸 Me gustaría compartir mi experiencia con Selah Alma Bonita.";
+`Hola Adriana 🌸
+
+Me gustaría compartir mi experiencia con Selah Alma Bonita.`;
 
 
 window.open(
@@ -279,7 +316,7 @@ btnCalendario.onclick = () => {
 
 
 alert(
-`📅 Tu cita está reservada:
+`📅 Tu cita:
 
 ${paciente.fecha}
 
