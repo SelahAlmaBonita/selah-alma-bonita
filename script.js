@@ -15,31 +15,22 @@ const paciente = {
 // ===============================
 
 document.getElementById("nombrePaciente").textContent = paciente.nombre;
-
 document.getElementById("fechaCita").textContent = paciente.fecha;
-
 document.getElementById("horaCita").textContent = paciente.hora;
-
 document.getElementById("duracionCita").textContent = paciente.duracion;
 
 
 
 // ===============================
-// MENSAJES DEL DÍA
+// MENSAJE DEL DÍA
 // ===============================
 
 const mensajes = [
-
-"Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
-
-"Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
-
-"Tu bienestar también merece un espacio en tu agenda.",
-
-"Respira profundo. Hoy es un buen día para cuidar de ti.",
-
-"Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
-
+    "Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
+    "Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
+    "Tu bienestar también merece un espacio en tu agenda.",
+    "Respira profundo. Hoy es un buen día para cuidar de ti.",
+    "Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
 ];
 
 
@@ -47,15 +38,11 @@ const mensajeAleatorio =
 mensajes[Math.floor(Math.random()*mensajes.length)];
 
 
-const mensajeDiv =
-document.querySelector(".mensaje");
+const mensajeDiv = document.querySelector(".mensaje");
 
 
 if(mensajeDiv){
-
-mensajeDiv.innerHTML =
-"✨ " + mensajeAleatorio;
-
+    mensajeDiv.innerHTML = "✨ " + mensajeAleatorio;
 }
 
 
@@ -63,7 +50,6 @@ mensajeDiv.innerHTML =
 // ===============================
 // WHATSAPP CONFIRMAR ASISTENCIA
 // ===============================
-
 
 const btnWhatsApp =
 document.getElementById("btnWhatsApp");
@@ -85,11 +71,8 @@ Gracias 💗`;
 
 
 window.open(
-
 `https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
-
 "_blank"
-
 );
 
 
@@ -103,7 +86,6 @@ window.open(
 // GOOGLE MAPS
 // ===============================
 
-
 const btnMapa =
 document.getElementById("btnMapa");
 
@@ -112,15 +94,10 @@ if(btnMapa){
 
 btnMapa.onclick = () => {
 
-
 window.open(
-
 "https://maps.app.goo.gl/nvW6SGQAr4T17DMW7?g_st=ic",
-
 "_blank"
-
 );
-
 
 };
 
@@ -132,10 +109,8 @@ window.open(
 // FORMAS DE PAGO
 // ===============================
 
-
 const btnPago =
 document.getElementById("btnPago");
-
 
 const pagoBox =
 document.getElementById("pagoBox");
@@ -175,7 +150,6 @@ pagoBox.classList.add("oculta");
 // COPIAR CLABE
 // ===============================
 
-
 const copiarClabe =
 document.getElementById("copiarClabe");
 
@@ -194,6 +168,33 @@ navigator.clipboard.writeText(clabe);
 
 alert("CLABE copiada correctamente 🌸");
 
+};
+
+}
+
+
+
+// ===============================
+// COPIAR CUENTA BANORTE
+// ===============================
+
+const copiarCuenta =
+document.getElementById("copiarCuenta");
+
+
+if(copiarCuenta){
+
+copiarCuenta.onclick = () => {
+
+
+const cuenta =
+document.getElementById("cuenta").innerText;
+
+
+navigator.clipboard.writeText(cuenta);
+
+
+alert("Cuenta Banorte copiada correctamente 🌸");
 
 };
 
@@ -204,7 +205,6 @@ alert("CLABE copiada correctamente 🌸");
 // ===============================
 // ENVIAR COMPROBANTE
 // ===============================
-
 
 const enviarComprobante =
 document.getElementById("enviarComprobante");
@@ -225,11 +225,8 @@ ${paciente.nombre}`;
 
 
 window.open(
-
 `https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
-
 "_blank"
-
 );
 
 
@@ -242,7 +239,6 @@ window.open(
 // ===============================
 // RESEÑA
 // ===============================
-
 
 const btnResena =
 document.getElementById("btnResena");
@@ -258,11 +254,8 @@ const texto =
 
 
 window.open(
-
 `https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
-
 "_blank"
-
 );
 
 
@@ -276,7 +269,6 @@ window.open(
 // CALENDARIO
 // ===============================
 
-
 const btnCalendario =
 document.getElementById("btnCalendario");
 
@@ -287,7 +279,7 @@ btnCalendario.onclick = () => {
 
 
 alert(
-`📅 Tu cita está lista:
+`📅 Tu cita está reservada:
 
 ${paciente.fecha}
 
