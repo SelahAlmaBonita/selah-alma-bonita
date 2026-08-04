@@ -398,7 +398,6 @@ small{
 }
 
 
-
 @keyframes flotar{
 
     0%{
@@ -406,11 +405,12 @@ small{
         translateY(-60px)
         translateX(0)
         rotate(0deg);
+
         opacity:0;
     }
 
 
-    10%{
+    20%{
         opacity:.8;
     }
 
@@ -419,8 +419,8 @@ small{
 
         transform:
         translateY(50vh)
-        translateX(35px)
-        rotate(180deg);
+        translateX(25px)
+        rotate(20deg);
 
     }
 
@@ -429,8 +429,8 @@ small{
 
         transform:
         translateY(110vh)
-        translateX(-25px)
-        rotate(360deg);
+        translateX(-15px)
+        rotate(45deg);
 
         opacity:0;
 
