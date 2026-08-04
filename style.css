@@ -473,54 +473,6 @@ small{
     opacity:0;
 }
 
-}
-
-.petalo{
-    font-size:28px;
-}
-
-
-.corazon{
-    font-size:18px;
-}
-
-
-@keyframes flotar{
-
-    0%{
-        transform:
-        translateY(-60px)
-        translateX(0)
-        rotate(0deg);
-
-        opacity:0;
-    }
-
-
-    20%{
-        opacity:.8;
-    }
-
-
-    50%{
-
-        transform:
-        translateY(50vh)
-        translateX(25px)
-        rotate(20deg);
-
-    }
-
-
-    100%{
-
-        transform:
-        translateY(110vh)
-        translateX(-15px)
-        rotate(45deg);
-
-        opacity:0;
-
     }
 
 }
