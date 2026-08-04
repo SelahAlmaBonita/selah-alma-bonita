@@ -347,5 +347,177 @@ Gracias.`;
     }
 
 
+// ===============================
+// PAGOS PREMIUM SELAH
+// ===============================
 
+const btnPago = document.getElementById("btnPago");
+const pagoBox = document.getElementById("pagoBox");
+
+
+if(btnPago && pagoBox){
+
+
+    btnPago.onclick = ()=>{
+
+
+        pagoBox.innerHTML = `
+
+        <div class="pagoTarjeta">
+
+            <h2>🌸 Selah Alma Bonita</h2>
+
+            <h3>${CONFIG.pago.banco}</h3>
+
+
+            <p class="tituloPago">
+            Titular
+            </p>
+
+            <strong>
+            ${CONFIG.pago.titular}
+            </strong>
+
+
+
+            <div class="datoPago">
+
+                <span>Cuenta</span>
+
+                <b>
+                ${CONFIG.pago.cuenta}
+                </b>
+
+
+                <button onclick="copiarPago('${CONFIG.pago.cuenta}')">
+                📋 Copiar cuenta
+                </button>
+
+            </div>
+
+
+
+            <div class="datoPago">
+
+                <span>CLABE</span>
+
+                <b>
+                ${CONFIG.pago.clabe}
+                </b>
+
+
+                <button onclick="copiarPago('${CONFIG.pago.clabe}')">
+                📋 Copiar CLABE
+                </button>
+
+            </div>
+
+
+
+            <button id="enviarComprobante">
+            💬 Enviar comprobante
+            </button>
+
+
+
+            <button id="cerrarPago">
+            ✨ Cerrar
+            </button>
+
+
+        </div>
+
+        `;
+
+
+        pagoBox.classList.remove("oculta");
+
+
+
+        document
+        .getElementById("cerrarPago")
+        .onclick = ()=>{
+
+            pagoBox.classList.add("oculta");
+
+        };
+
+
+
+        document
+        .getElementById("enviarComprobante")
+        .onclick = ()=>{
+
+
+            const mensaje =
+
+`Hola Adriana 🌸
+
+Te envío mi comprobante de pago.
+
+📅 Fecha:
+${paciente.fecha}
+
+🕙 Hora:
+${paciente.hora}
+
+🌿 Terapia:
+${paciente.terapia}`;
+
+
+
+            window.open(
+
+            "https://wa.me/" +
+            CONFIG.whatsapp.telefono +
+            "?text=" +
+            encodeURIComponent(mensaje),
+
+            "_blank"
+
+            );
+
+
+        };
+
+
+    };
+
+
+}
+
+
+
+// COPIAR DATOS BANCARIOS
+
+window.copiarPago = function(texto){
+
+
+    navigator.clipboard.writeText(texto);
+
+
+
+    const aviso = document.createElement("div");
+
+
+    aviso.className="avisoCopia";
+
+
+    aviso.innerHTML="✨ Copiado correctamente";
+
+
+
+    document.body.appendChild(aviso);
+
+
+
+    setTimeout(()=>{
+
+        aviso.remove();
+
+    },2000);
+
+
+};
+    
 }
