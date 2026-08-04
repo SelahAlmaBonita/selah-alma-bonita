@@ -56,3 +56,21 @@ Confirmo mi asistencia para mi cita del ${paciente.fecha} a las ${paciente.hora}
   });
 
 }
+// ===============================
+// BOTÓN GOOGLE MAPS
+// ===============================
+
+const btnMapa = document.getElementById("btnMapa");
+
+if (btnMapa) {
+
+  btnMapa.addEventListener("click", () => {
+
+    window.open(
+      "https://maps.app.goo.gl/nvW6SGQAr4T17DMW7?g_st=ic",
+      "_blank"
+    );
+
+  });
+
+}
