@@ -382,12 +382,11 @@ small{
     position:absolute;
     top:-60px;
 
-    animation:flotar 22s linear infinite;
+    animation:flotar 30s ease-in-out infinite;
 
     opacity:.75;
 
 }
-
 
 .petalo{
     font-size:28px;
