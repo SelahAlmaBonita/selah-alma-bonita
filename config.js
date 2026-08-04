@@ -1,4 +1,4 @@
- // ======================================================
+// ======================================================
 // SELAH ALMA BONITA PREMIUM
 // CONFIGURACIÓN GENERAL
 // ======================================================
@@ -11,32 +11,16 @@ const CONFIG = {
 
     paciente:{
 
-    nombre:"",
-
-    categoria:"adulto", 
-    // adulto | adolescente | niño
-
-    genero:"femenino", 
-    // femenino | masculino
-
-    tratamiento:"nombre", 
-    // nombre | sr | sra
-
-    fecha:"08 de agosto",
-
-    hora:"5:00 p. m.",
-
-    duracion:"60 minutos",
-
-    terapia:"Biomagnetismo"
-
-},:{
-
         nombre:"",
 
-        genero:"femenino", // femenino | masculino
+        categoria:"adulto",
+        // adulto | adolescente | niño
 
-        tratamiento:"nombre", // nombre | sr | sra
+        genero:"femenino",
+        // femenino | masculino
+
+        tratamiento:"nombre",
+        // nombre | sr | sra
 
         fecha:"08 de agosto",
 
@@ -47,7 +31,6 @@ const CONFIG = {
         terapia:"Biomagnetismo"
 
     },
-
 
 
     //====================================================
@@ -62,7 +45,6 @@ const CONFIG = {
         "¡Feliz cumpleaños! Que este nuevo año esté lleno de salud, paz y bienestar. Gracias por permitirnos acompañarte. 🌸"
 
     },
-
 
 
     //====================================================
@@ -80,7 +62,6 @@ const CONFIG = {
     },
 
 
-
     //====================================================
     // WHATSAPP
     //====================================================
@@ -90,7 +71,6 @@ const CONFIG = {
         telefono:"5216642198335"
 
     },
-
 
 
     //====================================================
@@ -104,7 +84,6 @@ const CONFIG = {
     },
 
 
-
     //====================================================
     // GOOGLE RESEÑAS
     //====================================================
@@ -114,7 +93,6 @@ const CONFIG = {
         url:""
 
     },
-
 
 
     //====================================================
@@ -128,9 +106,8 @@ const CONFIG = {
     },
 
 
-
     //====================================================
-    // DATOS BANCARIOS
+    // DATOS BANCARIOS PREMIUM
     //====================================================
 
     pago:{
@@ -146,9 +123,8 @@ const CONFIG = {
     },
 
 
-
     //====================================================
-    // MÚSICA
+    // MÚSICA SELAH
     //====================================================
 
     musica:{
@@ -156,7 +132,6 @@ const CONFIG = {
         activa:true
 
     },
-
 
 
     //====================================================
