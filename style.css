@@ -97,3 +97,49 @@ opacity:1;
 transform:translateY(0);
 }
 }
+/* ===========================
+   TARJETAS PREMIUM
+=========================== */
+
+.tarjeta,
+.mensaje {
+    background: rgba(255,255,255,0.92);
+    border-radius: 22px;
+    padding: 22px;
+    margin-top: 22px;
+    box-shadow: 0 10px 30px rgba(180,140,80,.12);
+    border: 1px solid rgba(212,175,55,.18);
+}
+
+.botones{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-top:25px;
+}
+
+.botones button{
+    background: linear-gradient(135deg,#d4af37,#c9972d);
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    border:none;
+    border-radius:18px;
+    padding:16px;
+    transition:.25s;
+}
+
+.botones button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(212,175,55,.35);
+}
+
+.botones button:active{
+    transform:scale(.98);
+}
+
+.frase{
+    font-style:italic;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+}
