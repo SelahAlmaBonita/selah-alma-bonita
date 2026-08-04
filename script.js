@@ -4,9 +4,9 @@
 // ===============================
 
 const paciente = {
-    nombre: "Ady Bonita",
-    fecha: "08 Agosto",
-    hora: "3:00 pm",
+    nombre: "Nombre del paciente",
+    fecha: "Día y fecha de la cita",
+    hora: "Hora de la cita",
     duracion: "60 minutos"
 };
 
@@ -15,34 +15,16 @@ const paciente = {
 // MOSTRAR DATOS DEL PACIENTE
 // ===============================
 
-const nombrePaciente =
-document.getElementById("nombrePaciente");
-
-const fechaCita =
-document.getElementById("fechaCita");
-
-const horaCita =
-document.getElementById("horaCita");
-
-const duracionCita =
-document.getElementById("duracionCita");
+const nombrePaciente = document.getElementById("nombrePaciente");
+const fechaCita = document.getElementById("fechaCita");
+const horaCita = document.getElementById("horaCita");
+const duracionCita = document.getElementById("duracionCita");
 
 
-if(nombrePaciente){
-    nombrePaciente.textContent = paciente.nombre;
-}
-
-if(fechaCita){
-    fechaCita.textContent = paciente.fecha;
-}
-
-if(horaCita){
-    horaCita.textContent = paciente.hora;
-}
-
-if(duracionCita){
-    duracionCita.textContent = paciente.duracion;
-}
+if(nombrePaciente) nombrePaciente.textContent = paciente.nombre;
+if(fechaCita) fechaCita.textContent = paciente.fecha;
+if(horaCita) horaCita.textContent = paciente.hora;
+if(duracionCita) duracionCita.textContent = paciente.duracion;
 
 
 
@@ -51,32 +33,20 @@ if(duracionCita){
 // ===============================
 
 const mensajes = [
-
 "Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
-
 "Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
-
 "Tu bienestar también merece un espacio en tu agenda.",
-
-"Respira profundo. Hoy es un buen día para cuidar de ti.",
-
-"Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
-
+"Respira profundo. Hoy es un buen día para cuidar de ti."
 ];
 
 
-const mensajeAleatorio =
-mensajes[Math.floor(Math.random()*mensajes.length)];
-
-
-const mensajeDiv =
-document.querySelector(".mensaje");
+const mensajeDiv = document.querySelector(".mensaje");
 
 
 if(mensajeDiv){
 
 mensajeDiv.innerHTML =
-"✨ " + mensajeAleatorio;
+"✨ " + mensajes[Math.floor(Math.random()*mensajes.length)];
 
 }
 
@@ -86,30 +56,24 @@ mensajeDiv.innerHTML =
 // WHATSAPP CONFIRMAR ASISTENCIA
 // ===============================
 
-const btnWhatsApp =
-document.getElementById("btnWhatsApp");
+const btnWhatsApp = document.getElementById("btnWhatsApp");
 
 
 if(btnWhatsApp){
 
 btnWhatsApp.onclick = () => {
 
-
 const texto =
 `Hola Adriana 🌸
 
 Soy ${paciente.nombre}.
 
-Confirmo mi asistencia para mi cita del ${paciente.fecha} a las ${paciente.hora}.
-
-Gracias 💗`;
-
+Confirmo mi asistencia para mi cita del ${paciente.fecha} a las ${paciente.hora}.`;
 
 window.open(
 `https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
 "_blank"
 );
-
 
 };
 
@@ -121,8 +85,7 @@ window.open(
 // GOOGLE MAPS
 // ===============================
 
-const btnMapa =
-document.getElementById("btnMapa");
+const btnMapa = document.getElementById("btnMapa");
 
 
 if(btnMapa){
@@ -144,11 +107,8 @@ window.open(
 // FORMAS DE PAGO
 // ===============================
 
-const btnPago =
-document.getElementById("btnPago");
-
-const pagoBox =
-document.getElementById("pagoBox");
+const btnPago = document.getElementById("btnPago");
+const pagoBox = document.getElementById("pagoBox");
 
 
 if(btnPago){
@@ -162,9 +122,7 @@ pagoBox.classList.remove("oculta");
 }
 
 
-
-const cerrarPago =
-document.getElementById("cerrarPago");
+const cerrarPago = document.getElementById("cerrarPago");
 
 
 if(cerrarPago){
@@ -172,6 +130,33 @@ if(cerrarPago){
 cerrarPago.onclick = () => {
 
 pagoBox.classList.add("oculta");
+
+};
+
+}
+
+
+
+// ===============================
+// COPIAR CUENTA
+// ===============================
+
+const copiarCuenta =
+document.getElementById("copiarCuenta");
+
+
+if(copiarCuenta){
+
+copiarCuenta.onclick = () => {
+
+const cuenta =
+document.getElementById("cuenta").innerText;
+
+
+navigator.clipboard.writeText(cuenta);
+
+
+alert("Cuenta Banorte copiada 🌸");
 
 };
 
@@ -191,7 +176,6 @@ if(copiarClabe){
 
 copiarClabe.onclick = () => {
 
-
 const clabe =
 document.getElementById("clabe").innerText;
 
@@ -199,37 +183,7 @@ document.getElementById("clabe").innerText;
 navigator.clipboard.writeText(clabe);
 
 
-alert("CLABE copiada correctamente 🌸");
-
-
-};
-
-}
-
-
-
-// ===============================
-// COPIAR CUENTA BANORTE
-// ===============================
-
-const copiarCuenta =
-document.getElementById("copiarCuenta");
-
-
-if(copiarCuenta){
-
-copiarCuenta.onclick = () => {
-
-
-const cuenta =
-document.getElementById("cuenta").innerText;
-
-
-navigator.clipboard.writeText(cuenta);
-
-
-alert("Cuenta Banorte copiada correctamente 🌸");
-
+alert("CLABE copiada 🌸");
 
 };
 
@@ -249,7 +203,6 @@ if(enviarComprobante){
 
 enviarComprobante.onclick = () => {
 
-
 const texto =
 `Hola Adriana 🌸
 
@@ -263,7 +216,6 @@ window.open(
 `https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
 "_blank"
 );
-
 
 };
 
@@ -283,11 +235,8 @@ if(btnResena){
 
 btnResena.onclick = () => {
 
-
 const texto =
-`Hola Adriana 🌸
-
-Me gustaría compartir mi experiencia con Selah Alma Bonita.`;
+"Hola Adriana 🌸 Me gustaría compartir mi experiencia con Selah Alma Bonita.";
 
 
 window.open(
@@ -295,7 +244,6 @@ window.open(
 "_blank"
 );
 
-
 };
 
 }
@@ -303,7 +251,7 @@ window.open(
 
 
 // ===============================
-// CALENDARIO REAL
+// CALENDARIO
 // ===============================
 
 const btnCalendario =
@@ -313,62 +261,6 @@ document.getElementById("btnCalendario");
 if(btnCalendario){
 
 btnCalendario.onclick = () => {
-
-
-const evento = `
-BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:Selah Alma Bonita - Sesión
-DESCRIPTION:Cita con Adriana Itzel Guzmán Alarcón
-DTSTART:20260808T170000
-DTEND:20260808T180000
-LOCATION:Selah Alma Bonita
-END:VEVENT
-END:VCALENDAR
-`;
-
-
-const archivo =
-new Blob(
-[evento],
-{type:"text/calendar"}
-);
-
-
-const enlace =
-document.createElement("a");
-
-
-enlace.href =
-URL.createObjectURL(archivo);
-
-
-enlace.download =
-"cita-selah-alma-bonita.ics";
-
-
-document.body.appendChild(enlace);
-
-
-enlace.click();
-
-
-document.body.removeChild(enlace);
-
-
-};
-
-}
-
-const btnCalendario =
-document.getElementById("btnCalendario");
-
-
-if(btnCalendario){
-
-btnCalendario.onclick = () => {
-
 
 alert(
 `📅 Tu cita:
@@ -380,7 +272,6 @@ ${paciente.hora}
 Duración:
 ${paciente.duracion}`
 );
-
 
 };
 
