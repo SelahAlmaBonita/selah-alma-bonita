@@ -446,9 +446,12 @@ if(btnPago && pagoBox){
 
 `Hola Adriana 🌸
 
-✨ Gracias por elegir Selah Alma Bonita.
+✨ Gracias por acompañarme en este proceso y por crear este espacio de bienestar para mí.
 
-Te comparto mi comprobante de pago de mi cita:
+Te comparto mi comprobante de pago correspondiente a mi cita en Selah Alma Bonita:
+
+👤 Paciente:
+${paciente.nombre}
 
 📅 Fecha:
 ${paciente.fecha}
@@ -459,7 +462,9 @@ ${paciente.hora}
 🌿 Terapia:
 ${paciente.terapia}
 
-Gracias por acompañarme en este momento de bienestar. 🌸`;
+Gracias por tu acompañamiento. 🌸
+
+Nos vemos en mi próxima sesión. ✨`;
 
 
 
