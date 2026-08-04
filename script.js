@@ -231,7 +231,7 @@ if (typeof CONFIG === "undefined") {
 
             const texto =
 
-`Hola ${paciente.nombre} 🌸
+`Hola Adriana 🌸
 
 Confirmo mi asistencia para mi cita en Selah Alma Bonita.
 
