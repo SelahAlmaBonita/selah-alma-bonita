@@ -11,6 +11,27 @@ const CONFIG = {
 
     paciente:{
 
+    nombre:"",
+
+    categoria:"adulto", 
+    // adulto | adolescente | niño
+
+    genero:"femenino", 
+    // femenino | masculino
+
+    tratamiento:"nombre", 
+    // nombre | sr | sra
+
+    fecha:"08 de agosto",
+
+    hora:"5:00 p. m.",
+
+    duracion:"60 minutos",
+
+    terapia:"Biomagnetismo"
+
+},:{
+
         nombre:"",
 
         genero:"femenino", // femenino | masculino
