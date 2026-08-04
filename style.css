@@ -186,3 +186,25 @@ small{
     font-weight: 700;
     letter-spacing: 1px;
 }
+/* ===========================
+   BOTÓN MÚSICA SELAH
+=========================== */
+
+.musica{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+}
+
+#btnMusica{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    border:none;
+    background:linear-gradient(135deg,#d4af37,#c9972d);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(212,175,55,.35);
+}
