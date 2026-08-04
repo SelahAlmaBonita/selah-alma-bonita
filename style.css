@@ -176,3 +176,13 @@ small{
     }
 
 }
+/* ===========================
+   DATOS BANCARIOS PREMIUM
+=========================== */
+
+#cuenta,
+#clabe {
+    color: #b8860b;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
