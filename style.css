@@ -302,107 +302,90 @@ small{
 }
 
 /* ===========================
-   MEJORAS VISUALES PREMIUM
+MEJORAS VISUALES PREMIUM
 =========================== */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 35%),
-    radial-gradient(circle at 80% 10%, rgba(255,240,220,.35), transparent 40%),
-    radial-gradient(circle at 50% 100%, rgba(255,220,235,.25), transparent 45%);
-    z-index:0;
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 35%),
+radial-gradient(circle at 80% 10%, rgba(255,240,220,.35), transparent 40%),
+radial-gradient(circle at 50% 100%, rgba(255,220,235,.25), transparent 45%);
+z-index:0;
 }
-
 
 .tarjeta,
 .mensaje,
 .pagoTarjeta{
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
 }
-
-
-.logo{
-    width:190px;
-    max-width:80%;
-    filter:drop-shadow(0 0 10px rgba(212,175,55,.30));
-    animation:
-    aparecer 1.5s ease,
-    flotar 5s ease-in-out infinite;
-}
-
 
 .tarjeta,
 .mensaje{
-    animation:subir .8s ease both;
+animation:subir .8s ease both;
 }
-
 
 @keyframes subir{
 
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
+```
+from{
+    opacity:0;
+    transform:translateY(20px);
 }
 
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+```
+
+}
 
 .botones button{
-    position:relative;
-    overflow:hidden;
+position:relative;
+overflow:hidden;
 }
-
 
 .botones button::before{
 
-    content:"";
-    position:absolute;
-    top:0;
-    left:-120%;
-    width:60%;
-    height:100%;
+```
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:60%;
+height:100%;
 
-    background:linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,.45),
-    transparent
-    );
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.45),
+transparent
+);
 
-    transition:.8s;
+transition:.8s;
+```
+
 }
-
 
 .botones button:hover::before{
-    left:150%;
+left:150%;
 }
-
-
-.logo{
-    animation:
-    aparecer 1.5s ease,
-    flotar 5s ease-in-out infinite;
-}
-
 
 @keyframes flotar{
 
-    0%,100%{
-        transform:translateY(0);
-    }
+```
+0%,100%{
+    transform:translateY(0);
+}
 
-    50%{
-        transform:translateY(-4px);
-    }
+50%{
+    transform:translateY(-4px);
+}
+```
 
 }
