@@ -97,3 +97,37 @@ Hora: ${paciente.hora}`
   });
 
 }
+// ===============================
+// BOTÓN FORMAS DE PAGO
+// ===============================
+
+const btnPago = document.getElementById("btnPago");
+
+if (btnPago) {
+
+  btnPago.addEventListener("click", () => {
+
+    alert(`🌸 SELAH ALMA BONITA
+
+Banco:
+Banorte
+
+Titular:
+Adriana Itzel Guzmán Alarcón
+
+Tarjeta:
+5264 2468 3059 6705
+
+Cuenta:
+1220403183
+
+CLABE:
+072028012204031831
+
+Después de realizar tu pago, puedes enviar tu comprobante por WhatsApp.
+
+¡Gracias por tu confianza! 💗`);
+
+  });
+
+}
