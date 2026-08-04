@@ -3,131 +3,301 @@
 // ===============================
 
 const paciente = {
-  nombre: "Sheyla Maery",
-  fecha: "Miércoles 05 de agosto",
-  hora: "10:00 a. m."
+    nombre: "Sheyla Maery",
+    fecha: "Miércoles 05 de agosto",
+    hora: "10:00 a. m.",
+    duracion: "60 minutos"
 };
+
+
+// ===============================
+// MOSTRAR DATOS DEL PACIENTE
+// ===============================
+
+document.getElementById("nombrePaciente").textContent = paciente.nombre;
+
+document.getElementById("fechaCita").textContent = paciente.fecha;
+
+document.getElementById("horaCita").textContent = paciente.hora;
+
+document.getElementById("duracionCita").textContent = paciente.duracion;
+
+
 
 // ===============================
 // MENSAJES DEL DÍA
 // ===============================
 
 const mensajes = [
-  "Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
-  "Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
-  "Tu bienestar también merece un espacio en tu agenda.",
-  "Respira profundo. Hoy es un buen día para cuidar de ti.",
-  "Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
+
+"Hoy elegiste regalarte un momento para ti. Gracias por permitirnos acompañarte.",
+
+"Cada pequeño paso cuenta. Gracias por confiar en Selah Alma Bonita.",
+
+"Tu bienestar también merece un espacio en tu agenda.",
+
+"Respira profundo. Hoy es un buen día para cuidar de ti.",
+
+"Que esta sesión sea un momento de paz para tu cuerpo y tu mente."
+
 ];
 
-// Mostrar un mensaje aleatorio
-const mensaje = mensajes[Math.floor(Math.random() * mensajes.length)];
 
-const mensajeDiv = document.querySelector(".mensaje");
+const mensajeAleatorio =
+mensajes[Math.floor(Math.random()*mensajes.length)];
 
-if (mensajeDiv) {
-  mensajeDiv.innerHTML = "✨ " + mensaje;
+
+const mensajeDiv =
+document.querySelector(".mensaje");
+
+
+if(mensajeDiv){
+
+mensajeDiv.innerHTML =
+"✨ " + mensajeAleatorio;
+
 }
 
+
+
 // ===============================
-// BOTÓN WHATSAPP
+// WHATSAPP CONFIRMAR ASISTENCIA
 // ===============================
 
-const btnWhatsApp = document.getElementById("btnWhatsApp");
 
-if (btnWhatsApp) {
+const btnWhatsApp =
+document.getElementById("btnWhatsApp");
 
-  btnWhatsApp.addEventListener("click", () => {
 
-    const texto =
-`Hola, Adriana. 🌸
+if(btnWhatsApp){
+
+btnWhatsApp.onclick = () => {
+
+
+const texto =
+`Hola Adriana 🌸
 
 Soy ${paciente.nombre}.
 
 Confirmo mi asistencia para mi cita del ${paciente.fecha} a las ${paciente.hora}.
 
-¡Nos vemos pronto!`;
+Gracias 💗`;
 
-    const url =
-`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`;
 
-    window.open(url, "_blank");
+window.open(
 
-  });
+`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
 
-}
-// ===============================
-// BOTÓN GOOGLE MAPS
-// ===============================
+"_blank"
 
-const btnMapa = document.getElementById("btnMapa");
+);
 
-if (btnMapa) {
 
-  btnMapa.addEventListener("click", () => {
-
-    window.open(
-      "https://maps.app.goo.gl/nvW6SGQAr4T17DMW7?g_st=ic",
-      "_blank"
-    );
-
-  });
+};
 
 }
+
+
+
 // ===============================
-// BOTÓN CALENDARIO
+// GOOGLE MAPS
 // ===============================
 
-const btnCalendario = document.getElementById("btnCalendario");
 
-if (btnCalendario) {
+const btnMapa =
+document.getElementById("btnMapa");
 
-  btnCalendario.addEventListener("click", () => {
 
-    alert(
-`📅 Próximamente podrás agregar tu cita al calendario automáticamente.
+if(btnMapa){
 
-Paciente: ${paciente.nombre}
+btnMapa.onclick = () => {
 
-Fecha: ${paciente.fecha}
 
-Hora: ${paciente.hora}`
-    );
+window.open(
 
-  });
+"https://maps.app.goo.gl/nvW6SGQAr4T17DMW7?g_st=ic",
+
+"_blank"
+
+);
+
+
+};
 
 }
+
+
+
 // ===============================
-// BOTÓN FORMAS DE PAGO
+// FORMAS DE PAGO
 // ===============================
 
-const btnPago = document.getElementById("btnPago");
 
-if (btnPago) {
+const btnPago =
+document.getElementById("btnPago");
 
-  btnPago.addEventListener("click", () => {
 
-    alert(`🌸 SELAH ALMA BONITA
+const pagoBox =
+document.getElementById("pagoBox");
 
-Banco:
-Banorte
 
-Titular:
-Adriana Itzel Guzmán Alarcón
+if(btnPago){
 
-Tarjeta:
-5264 2468 3059 6705
+btnPago.onclick = () => {
 
-Cuenta:
-1220403183
+pagoBox.classList.remove("oculta");
 
-CLABE:
-072028012204031831
+};
 
-Después de realizar tu pago, puedes enviar tu comprobante por WhatsApp.
+}
 
-¡Gracias por tu confianza! 💗`);
 
-  });
+
+// CERRAR PAGOS
+
+const cerrarPago =
+document.getElementById("cerrarPago");
+
+
+if(cerrarPago){
+
+cerrarPago.onclick = () => {
+
+pagoBox.classList.add("oculta");
+
+};
+
+}
+
+
+
+// ===============================
+// COPIAR CLABE
+// ===============================
+
+
+const copiarClabe =
+document.getElementById("copiarClabe");
+
+
+if(copiarClabe){
+
+copiarClabe.onclick = () => {
+
+
+const clabe =
+document.getElementById("clabe").innerText;
+
+
+navigator.clipboard.writeText(clabe);
+
+
+alert("CLABE copiada correctamente 🌸");
+
+
+};
+
+}
+
+
+
+// ===============================
+// ENVIAR COMPROBANTE
+// ===============================
+
+
+const enviarComprobante =
+document.getElementById("enviarComprobante");
+
+
+if(enviarComprobante){
+
+enviarComprobante.onclick = () => {
+
+
+const texto =
+`Hola Adriana 🌸
+
+Te envío mi comprobante de pago.
+
+Paciente:
+${paciente.nombre}`;
+
+
+window.open(
+
+`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
+
+"_blank"
+
+);
+
+
+};
+
+}
+
+
+
+// ===============================
+// RESEÑA
+// ===============================
+
+
+const btnResena =
+document.getElementById("btnResena");
+
+
+if(btnResena){
+
+btnResena.onclick = () => {
+
+
+const texto =
+"Hola Adriana 🌸 Me gustaría compartir mi experiencia con Selah Alma Bonita.";
+
+
+window.open(
+
+`https://wa.me/5216642198335?text=${encodeURIComponent(texto)}`,
+
+"_blank"
+
+);
+
+
+};
+
+}
+
+
+
+// ===============================
+// CALENDARIO
+// ===============================
+
+
+const btnCalendario =
+document.getElementById("btnCalendario");
+
+
+if(btnCalendario){
+
+btnCalendario.onclick = () => {
+
+
+alert(
+`📅 Tu cita está lista:
+
+${paciente.fecha}
+
+${paciente.hora}
+
+Duración:
+${paciente.duracion}`
+);
+
+
+};
 
 }
