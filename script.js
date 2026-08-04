@@ -231,17 +231,25 @@ if (typeof CONFIG === "undefined") {
 
             const texto =
 
-`Hola ${paciente.nombre} 🌸
+`Hola Adriana 🌸
 
-Confirmo mi asistencia para mi cita en Selah Alma Bonita.
+✨ Confirmo mi asistencia para mi cita en Selah Alma Bonita.
 
-📅 Fecha: ${paciente.fecha}
+👤 Paciente:
+${paciente.nombre}
 
-🕙 Hora: ${paciente.hora}
+📅 Fecha:
+${paciente.fecha}
 
-🌿 Terapia: ${paciente.terapia}
+🕙 Hora:
+${paciente.hora}
 
-Gracias.`;
+🌿 Terapia:
+${paciente.terapia}
+
+Gracias por acompañarme en este proceso de bienestar y sanación. 🌸
+
+Nos vemos en mi próxima sesión. ✨`;
 
 
 
@@ -446,7 +454,7 @@ if(btnPago && pagoBox){
 
 `Hola Adriana 🌸
 
-✨ Gracias por acompañarme en este proceso y por crear este espacio de bienestar para mí.
+✨ Gracias por acompañarme en este proceso de bienestar y sanación.
 
 Te comparto mi comprobante de pago correspondiente a mi cita en Selah Alma Bonita:
 
@@ -462,9 +470,9 @@ ${paciente.hora}
 🌿 Terapia:
 ${paciente.terapia}
 
-Gracias por tu acompañamiento. 🌸
+Gracias por tu confianza y por permitirme acompañarte en este camino. 🌸
 
-Nos vemos en mi próxima sesión. ✨`;
+Nos vemos en nuestra próxima sesión. ✨`;
 
 
 
