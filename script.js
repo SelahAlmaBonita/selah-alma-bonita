@@ -470,9 +470,9 @@ ${paciente.hora}
 🌿 Terapia:
 ${paciente.terapia}
 
-Gracias por tu confianza y por permitirme acompañarte en este camino. 🌸
+Gracias por este espacio de paz, bienestar y sanación que compartes conmigo. 🌸
 
-Nos vemos en nuestra próxima sesión. ✨`;
+Con cariño, nos vemos en nuestra próxima sesión. ✨;
 
 
 
