@@ -297,4 +297,110 @@ small{
     }
 
 }
-Mejoras visuales Premium
+/* ===========================
+   MEJORAS VISUALES PREMIUM
+=========================== */
+
+/* Fondo con brillo muy sutil */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.45), transparent 35%),
+        radial-gradient(circle at 80% 10%, rgba(255,240,220,.35), transparent 40%),
+        radial-gradient(circle at 50% 100%, rgba(255,220,235,.25), transparent 45%);
+    z-index:0;
+}
+
+/* Tarjetas tipo cristal */
+.tarjeta,
+.mensaje,
+.pagoTarjeta{
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+}
+
+/* Logo con brillo */
+.logo{
+    filter:drop-shadow(0 0 10px rgba(212,175,55,.30));
+    transition:transform .4s ease;
+}
+
+.logo:hover{
+    transform:scale(1.03);
+}
+
+/* Animación de entrada */
+.tarjeta,
+.mensaje,
+.botones button{
+    animation:subir .8s ease both;
+}
+
+@keyframes subir{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* Botones más elegantes */
+.botones button{
+    position:relative;
+    overflow:hidden;
+}
+
+.botones button::before{
+
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:60%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transition:.8s;
+}
+
+.botones button:hover::before{
+    left:150%;
+}
+
+.botones button:active{
+    transform:scale(.98);
+}
+
+/* Movimiento suave del logo */
+@keyframes flotar{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-4px);
+    }
+
+}
+
+.logo{
+    animation:
+        aparecer 1.5s ease,
+        flotar 5s ease-in-out infinite;
+}
