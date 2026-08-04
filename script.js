@@ -425,8 +425,8 @@ if(btnPago && pagoBox){
 
 
             <button id="enviarComprobante">
-            💬 Enviar comprobante
-            </button>
+💬 Enviar comprobante por WhatsApp
+</button>
 
 
 
