@@ -74,3 +74,26 @@ if (btnMapa) {
   });
 
 }
+// ===============================
+// BOTÓN CALENDARIO
+// ===============================
+
+const btnCalendario = document.getElementById("btnCalendario");
+
+if (btnCalendario) {
+
+  btnCalendario.addEventListener("click", () => {
+
+    alert(
+`📅 Próximamente podrás agregar tu cita al calendario automáticamente.
+
+Paciente: ${paciente.nombre}
+
+Fecha: ${paciente.fecha}
+
+Hora: ${paciente.hora}`
+    );
+
+  });
+
+}
