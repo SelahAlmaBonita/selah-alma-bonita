@@ -233,7 +233,7 @@ if (typeof CONFIG === "undefined") {
 
 `Hola Adriana 🌸
 
-Te confirmo mi asistencia a mi próxima cita en Selah Alma Bonita.
+Queda confirmada mi asistencia a la siguiente cita en Selah Alma Bonita.
 
 👤 Paciente:
 ${paciente.nombre}
@@ -470,7 +470,7 @@ ${paciente.hora}
 🌿 Terapia:
 ${paciente.terapia}
 
-Gracias por crear este espacio de paz, bienestar y sanación para mí. 🌸
+Gracias por regalarme este espacio de paz, bienestar y sanación. 🌸
 
 Con cariño, nos vemos en nuestra próxima sesión. ✨`;
 
