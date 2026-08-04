@@ -4,9 +4,9 @@
 // ===============================
 
 const paciente = {
-    nombre: "Nombre del paciente",
-    fecha: "Día y fecha de la cita",
-    hora: "Hora de la cita",
+    nombre: "Blanca Margarita",
+    fecha: "04 de Agosto",
+    hora: "5:00 pm",
     duracion: "60 minutos"
 };
 
