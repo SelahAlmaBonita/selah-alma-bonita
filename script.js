@@ -380,20 +380,30 @@ if(btnPago && pagoBox){
 
 
 
-            <div class="datoPago">
+           <div class="datoPago">
 
-                <span>Cuenta</span>
+<span>🏦 Cuenta</span>
 
-                <b>
-                ${CONFIG.pago.cuenta}
-                </b>
+<b>${CONFIG.pago.cuenta}</b>
+
+<button onclick="copiarPago('${CONFIG.pago.cuenta}')">
+📋 Copiar
+</button>
+
+</div>
 
 
-                <button onclick="copiarPago('${CONFIG.pago.cuenta}')">
-                📋 Copiar cuenta
-                </button>
+<div class="datoPago">
 
-            </div>
+<span>🔐 CLABE</span>
+
+<b>${CONFIG.pago.clabe}</b>
+
+<button onclick="copiarPago('${CONFIG.pago.clabe}')">
+📋 Copiar
+</button>
+
+</div>
 
 
 
