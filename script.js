@@ -4,7 +4,7 @@
 // ===============================
 
 const paciente = {
-    nombre: "Blanca Margarita A. ",
+    nombre: "Blanca Margarita ",
     fecha: "04 de Agosto",
     hora: "5:00 pm",
     duracion: "60 minutos"
@@ -274,5 +274,35 @@ ${paciente.duracion}`
 );
 
 };
+
+}
+// ===============================
+// MÚSICA SELAH ALMA BONITA
+// ===============================
+
+const btnMusica = document.getElementById("btnMusica");
+const musicaSelah = document.getElementById("musicaSelah");
+
+if(btnMusica && musicaSelah){
+
+    btnMusica.onclick = () => {
+
+        if(musicaSelah.paused){
+
+            musicaSelah.play();
+
+            btnMusica.innerHTML =
+            "⏸️ Pausar música";
+
+        } else {
+
+            musicaSelah.pause();
+
+            btnMusica.innerHTML =
+            "🎵 Activar música";
+
+        }
+
+    };
 
 }
