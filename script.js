@@ -380,19 +380,6 @@ if(btnPago && pagoBox){
 
 
 
-           <div class="datoPago">
-
-<span>🏦 Cuenta</span>
-
-<b>${CONFIG.pago.cuenta}</b>
-
-<button onclick="copiarPago('${CONFIG.pago.cuenta}')">
-📋 Copiar
-</button>
-
-</div>
-
-
 <div class="datoPago">
 
 <span>🏦 Cuenta</span>
@@ -455,11 +442,13 @@ if(btnPago && pagoBox){
         .onclick = ()=>{
 
 
-            const mensaje =
+             const mensaje =
 
 `Hola Adriana 🌸
 
-Te envío mi comprobante de pago.
+✨ Gracias por elegir Selah Alma Bonita.
+
+Te comparto mi comprobante de pago de mi cita:
 
 📅 Fecha:
 ${paciente.fecha}
@@ -468,7 +457,9 @@ ${paciente.fecha}
 ${paciente.hora}
 
 🌿 Terapia:
-${paciente.terapia}`;
+${paciente.terapia}
+
+Gracias por acompañarme en este momento de bienestar. 🌸`;
 
 
 
