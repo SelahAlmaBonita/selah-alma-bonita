@@ -229,25 +229,19 @@ if (typeof CONFIG === "undefined") {
         btnWhatsApp.onclick = ()=>{
 
 
-            const mensaje =
+            const texto =
 
-`Hola Adriana 🌸
+`Hola ${paciente.nombre} 🌸
 
-✨ Te comparto mi comprobante de pago correspondiente a mi cita en Selah Alma Bonita.
+Confirmo mi asistencia para mi cita en Selah Alma Bonita.
 
-👤 Paciente:
-${paciente.nombre}
+📅 Fecha: ${paciente.fecha}
 
-📅 Fecha:
-${paciente.fecha}
+🕙 Hora: ${paciente.hora}
 
-🕙 Hora:
-${paciente.hora}
+🌿 Terapia: ${paciente.terapia}
 
-🌿 Terapia:
-${paciente.terapia}
-
-Gracias por acompañarme en este proceso de bienestar. 🌸`;
+Gracias.`;
 
 
 
