@@ -303,8 +303,63 @@ window.open(
 
 
 // ===============================
-// CALENDARIO
+// CALENDARIO REAL
 // ===============================
+
+const btnCalendario =
+document.getElementById("btnCalendario");
+
+
+if(btnCalendario){
+
+btnCalendario.onclick = () => {
+
+
+const evento = `
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Selah Alma Bonita - Sesión
+DESCRIPTION:Cita con Adriana Itzel Guzmán Alarcón
+DTSTART:20260808T170000
+DTEND:20260808T180000
+LOCATION:Selah Alma Bonita
+END:VEVENT
+END:VCALENDAR
+`;
+
+
+const archivo =
+new Blob(
+[evento],
+{type:"text/calendar"}
+);
+
+
+const enlace =
+document.createElement("a");
+
+
+enlace.href =
+URL.createObjectURL(archivo);
+
+
+enlace.download =
+"cita-selah-alma-bonita.ics";
+
+
+document.body.appendChild(enlace);
+
+
+enlace.click();
+
+
+document.body.removeChild(enlace);
+
+
+};
+
+}
 
 const btnCalendario =
 document.getElementById("btnCalendario");
