@@ -395,6 +395,19 @@ if(btnPago && pagoBox){
 
 <div class="datoPago">
 
+<span>🏦 Cuenta</span>
+
+<b>${CONFIG.pago.cuenta}</b>
+
+<button onclick="copiarPago('${CONFIG.pago.cuenta}')">
+📋 Copiar
+</button>
+
+</div>
+
+
+<div class="datoPago">
+
 <span>🔐 CLABE</span>
 
 <b>${CONFIG.pago.clabe}</b>
@@ -406,15 +419,16 @@ if(btnPago && pagoBox){
 </div>
 
 
-            <button id="enviarComprobante">
-            💬 Enviar comprobante por WhatsApp
-            </button>
+
+<button id="enviarComprobante">
+💬 Enviar comprobante por WhatsApp
+</button>
 
 
 
-            <button id="cerrarPago">
-            ✨ Cerrar
-            </button>
+<button id="cerrarPago">
+✨ Cerrar
+</button>
 
 
         </div>
