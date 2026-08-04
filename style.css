@@ -24,7 +24,10 @@ body{
 .logo{
     width:190px;
     max-width:80%;
-    animation:aparecer 1.5s ease;
+    filter:drop-shadow(0 0 10px rgba(212,175,55,.30));
+    animation:
+    aparecer 1.5s ease,
+    flotar 5s ease-in-out infinite;
 }
 
 h1{
@@ -324,7 +327,12 @@ body::before{
 
 
 .logo{
+    width:190px;
+    max-width:80%;
     filter:drop-shadow(0 0 10px rgba(212,175,55,.30));
+    animation:
+    aparecer 1.5s ease,
+    flotar 5s ease-in-out infinite;
 }
 
 
