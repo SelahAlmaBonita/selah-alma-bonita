@@ -25,52 +25,162 @@ Selah
 Detente, respira, sana y florece
 </p>
 
+
+<!-- TARJETA DE PACIENTE -->
+
 <div class="tarjeta">
 
-<h2>🌸 Bienvenida, Sheyla Maery</h2>
+<h2>🌸 Bienvenida, <span id="nombrePaciente">Paciente</span></h2>
 
 <p class="saludo">
 Nos llena de alegría recibirte.
 </p>
 
+
 <div class="cita">
 
 <h3>Tu próxima cita</h3>
 
-<p>📅 Miércoles 05 de agosto</p>
+<p>📅 <span id="fechaCita">Fecha pendiente</span></p>
 
-<p>🕙 10:00 a. m.</p>
+<p>🕙 <span id="horaCita">Hora pendiente</span></p>
+
+<p>⏱ Duración: <span id="duracionCita">60 minutos</span></p>
 
 </div>
 
 </div>
+
+
+<!-- EXPERIENCIA SELAH -->
+
+<div class="tarjeta">
+
+<h2>🌿 Tu experiencia Selah</h2>
+
+<p>✅ Cita agendada</p>
+
+<p>🟡 Próxima sesión</p>
+
+<p>⬜ Seguimiento</p>
+
+</div>
+
+
+
+<!-- MENSAJE -->
 
 <div class="mensaje">
 
-✨ Hoy elegiste regalarte un momento para ti.
-<br><br>
-
-Gracias por permitirnos acompañarte.
+✨ Preparando tu mensaje del día...
 
 </div>
+
+
+
+<!-- RECOMENDACIONES -->
+
+<div class="tarjeta">
+
+<h2>🌸 Recomendaciones para tu sesión</h2>
+
+<p>💧 Mantente hidratada.</p>
+
+<p>👕 Usa ropa cómoda.</p>
+
+<p>⏰ Llega 10 minutos antes.</p>
+
+</div>
+
+
+
+<!-- BOTONES -->
 
 <div class="botones">
 
-<button id="btnMapa">📍 Cómo llegar</button>
+<button id="btnMapa">
+📍 Cómo llegar
+<br>
+<small>Encuentra nuestra ubicación</small>
+</button>
 
-<button id="btnWhatsApp">💬 Confirmar asistencia</button>
 
-<button id="btnCalendario">📅 Agregar a mi calendario</button>
+<button id="btnWhatsApp">
+💬 Confirmar asistencia
+<br>
+<small>Envía tu confirmación</small>
+</button>
 
-<button id="btnPago">💳 Formas de pago</button>
 
-<button id="btnResena">⭐ Compartir mi experiencia</button>
+<button id="btnCalendario">
+📅 Agregar al calendario
+<br>
+<small>Guarda tu cita</small>
+</button>
+
+
+<button id="btnPago">
+💳 Formas de pago
+<br>
+<small>Consulta datos bancarios</small>
+</button>
+
+
+<button id="btnResena">
+⭐ Compartir mi experiencia
+<br>
+<small>Déjanos tu opinión</small>
+</button>
 
 </div>
 
+
+<!-- TARJETA OCULTA DE PAGOS -->
+
+<div id="pagoBox" class="tarjeta oculta">
+
+<h2>💳 Formas de pago</h2>
+
+<p>
+Banco:<br>
+<strong>Banorte</strong>
+</p>
+
+<p>
+Titular:<br>
+<strong>Adriana Itzel Guzmán Alarcón</strong>
+</p>
+
+<p>
+CLABE:<br>
+<strong id="clabe">
+072028012204031831
+</strong>
+</p>
+
+
+<button id="copiarClabe">
+📋 Copiar CLABE
+</button>
+
+
+<button id="enviarComprobante">
+💬 Enviar comprobante
+</button>
+
+
+<button id="cerrarPago">
+❌ Cerrar
+</button>
+
 </div>
+
+
+</div>
+
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
