@@ -4,7 +4,7 @@
 // ===============================
 
 const paciente = {
-    nombre: "Blanca Margarita",
+    nombre: "Blanca Margarita A. ",
     fecha: "04 de Agosto",
     hora: "5:00 pm",
     duracion: "60 minutos"
