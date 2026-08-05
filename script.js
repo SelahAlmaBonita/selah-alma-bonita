@@ -529,5 +529,35 @@ window.copiarPago = function(texto){
 
 
 };
-    
+
+// ===============================
+// GOOGLE RESEÑAS
+// ===============================
+
+const btnResena = document.getElementById("btnResena");
+
+if(btnResena){
+
+    btnResena.onclick = ()=>{
+
+        if(CONFIG.experiencia.compartirGoogle && CONFIG.google.url){
+
+            window.open(CONFIG.google.url,"_blank");
+
+            return;
+
+        }
+
+        if(CONFIG.experiencia.compartirInstagram && CONFIG.instagram.url){
+
+            window.open(CONFIG.instagram.url,"_blank");
+
+            return;
+
+        }
+
+        alert("Próximamente podrás compartir tu experiencia.");
+    };
+
+}
 }
