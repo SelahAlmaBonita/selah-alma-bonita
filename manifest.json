@@ -1,0 +1,17 @@
+{
+  "name": "Selah Alma Bonita",
+  "short_name": "Selah",
+  "description": "Espacio de bienestar integral",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fffaf7",
+  "theme_color": "#d4af37",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
