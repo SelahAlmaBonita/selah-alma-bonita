@@ -90,9 +90,9 @@ const CONFIG = {
 
     google:{
 
-        url:""
+    url:"https://g.page/r/CfGLgE1ohr1AEBM/review"
 
-    },
+},
 
 
     //====================================================
