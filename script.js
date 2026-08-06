@@ -560,4 +560,20 @@ if(btnResena){
     };
 
 }
+    ...
+Google Reviews
+
+PEGAR AQUÍ
+↓↓↓↓↓↓↓↓↓↓
+
+Instagram
+Historia
+Llamar
+Solicitar cita
+Calendario
+Cumpleaños
+Promociones
+
+}
+
 }
