@@ -688,7 +688,58 @@ historiaBox.classList.remove("oculta");
 const textoHistoria =
 document.getElementById("textoHistoria");
 
+const fotoHistoria =
+document.getElementById("fotoHistoria");
 
+
+let imagenHistoria = "";
+
+
+if(fotoHistoria){
+
+    fotoHistoria.onchange = ()=>{
+
+        const archivo = fotoHistoria.files[0];
+
+        if(archivo){
+
+            const lector = new FileReader();
+
+            lector.onload = function(e){
+
+                imagenHistoria = e.target.result;
+
+                vistaHistoria.innerHTML = `
+
+                <img src="${imagenHistoria}" 
+                style="width:100%;border-radius:20px;margin-bottom:15px;">
+
+                "${textoHistoria.value}"
+
+                <br><br>
+
+                ✨ Selah Alma Bonita
+
+                <br>
+
+                Detente, respira, sana y florece
+
+                <br><br>
+
+                #SelahAlmaBonita
+
+                `;
+
+            };
+
+            lector.readAsDataURL(archivo);
+
+        }
+
+    };
+
+}
+    
 const vistaHistoria =
 document.getElementById("vistaHistoria");
 
