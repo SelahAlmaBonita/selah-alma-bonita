@@ -885,10 +885,49 @@ if(btnCalendario){
 
     btnCalendario.onclick = ()=>{
 
-        const inicio = prompt(
-            "Escribe la fecha y hora en formato:\n2026-08-08T17:00",
-            "2026-08-08T17:00"
-        );
+    const inicio = new Date(
+        "2026-08-08T17:00:00"
+    );
+
+    const fin = new Date(
+        inicio.getTime() + 60*60000
+    );
+
+    function formato(fecha){
+
+        return fecha
+        .toISOString()
+        .replace(/-|:|\.\d+/g,"");
+
+    }
+
+    const url =
+
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+
+    "&text=" + encodeURIComponent(CONFIG.agenda.titulo) +
+
+    "&dates=" +
+
+    formato(inicio) +
+
+    "/" +
+
+    formato(fin) +
+
+    "&location=" +
+
+    encodeURIComponent(CONFIG.agenda.direccionEvento) +
+
+    "&details=" +
+
+    encodeURIComponent(
+        "Nos vemos en Selah Alma Bonita 🌸"
+    );
+
+    window.open(url,"_blank");
+
+};
 
         if(!inicio) return;
 
