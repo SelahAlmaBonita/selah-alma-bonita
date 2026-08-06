@@ -425,3 +425,76 @@ small{
     }
 
 }
+
+/* ===================================
+   HISTORIA SELAH PREMIUM
+=================================== */
+
+#historiaBox{
+    position:fixed;
+    inset:0;
+    background:rgba(255,248,245,.95);
+    z-index:3000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.historiaContenedor{
+    width:100%;
+    max-width:400px;
+    background:linear-gradient(145deg,#fffdf8,#fff0f5);
+    border-radius:30px;
+    padding:25px;
+    border:1px solid rgba(212,175,55,.3);
+    box-shadow:0 20px 50px rgba(184,134,11,.25);
+    text-align:center;
+    animation:subir .8s ease;
+}
+
+.historiaContenedor h2{
+    color:#b8860b;
+}
+
+.historiaTexto{
+    width:100%;
+    min-height:120px;
+    border-radius:20px;
+    border:1px solid #e7c98a;
+    padding:15px;
+    font-size:16px;
+    resize:none;
+    outline:none;
+}
+
+.historiaTarjeta{
+    margin-top:20px;
+    padding:25px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#fff,#fff2f7);
+    border:2px solid #d4af37;
+    color:#8d6e63;
+    font-style:italic;
+}
+
+.historiaLogo{
+    width:90px;
+    margin-bottom:10px;
+}
+
+.historiaBoton{
+    margin-top:15px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(135deg,#d4af37,#c9972d);
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.historiaCerrra{
+    background:#8d6e63;
+}
