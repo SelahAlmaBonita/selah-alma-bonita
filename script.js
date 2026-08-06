@@ -625,7 +625,19 @@ class="historiaTexto"
 placeholder="Hoy me regalé un momento para mí...">
 </textarea>
 
+<br>
 
+<label class="historiaBoton">
+📷 Elegir mi foto
+
+<input 
+type="file"
+id="fotoHistoria"
+accept="image/*"
+style="display:none;">
+</label>
+
+<br>
 
 <div 
 id="vistaHistoria"
