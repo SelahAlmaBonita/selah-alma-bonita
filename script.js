@@ -776,25 +776,40 @@ historiaBox.classList.add("oculta");
 document.getElementById("compartirHistoria").onclick = ()=>{
 
 
-if(navigator.share){
+html2canvas(vistaHistoria).then(async(canvas)=>{
 
+    canvas.toBlob(async(blob)=>{
 
-navigator.share({
+        const archivo = new File(
+            [blob],
+            "SelahAlmaBonita.png",
+            {type:"image/png"}
+        );
 
-title:"Selah Alma Bonita",
+        if(
+            navigator.canShare &&
+            navigator.canShare({files:[archivo]})
+        ){
 
-text:vistaHistoria.innerText
+            await navigator.share({
+
+                title:"Selah Alma Bonita",
+
+                text:"Mi experiencia en Selah Alma Bonita 🌸 #SelahAlmaBonita",
+
+                files:[archivo]
+
+            });
+
+        }else{
+
+            alert("Tu dispositivo no permite compartir imágenes automáticamente.");
+
+        }
+
+    });
 
 });
-
-
-}else{
-
-
-alert("Puedes tomar captura de pantalla y compartir tu historia en Instagram 🌸");
-
-
-}
 
 
 };
