@@ -121,7 +121,31 @@ if (typeof CONFIG === "undefined") {
 
     }
 
+// ===============================
+// PROGRESO DE SESIONES
+// ===============================
 
+const barraProgreso =
+document.getElementById("barraProgreso");
+
+const textoProgreso =
+document.getElementById("textoProgreso");
+
+if(barraProgreso && textoProgreso){
+
+    const porcentaje =
+    (paciente.sesiones / paciente.objetivo) * 100;
+
+    barraProgreso.style.width =
+    porcentaje + "%";
+
+    textoProgreso.innerHTML =
+    paciente.sesiones +
+    " de " +
+    paciente.objetivo +
+    " sesiones completadas 🌸";
+
+}
 
     // ===============================
     // MENSAJES SELAH
