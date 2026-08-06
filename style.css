@@ -500,3 +500,9 @@ small{
 .historiaCerrra{
     background:#8d6e63;
 }
+
+.historiaBoton{
+    display:block;
+    text-align:center;
+    cursor:pointer;
+}
