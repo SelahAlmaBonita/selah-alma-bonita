@@ -560,3 +560,128 @@ if(btnResena){
     };
 
 }
+
+// ===============================
+// INSTAGRAM
+// ===============================
+
+const btnInstagram = document.getElementById("btnInstagram");
+
+if(btnInstagram){
+
+    btnInstagram.onclick = ()=>{
+
+        if(CONFIG.instagram.url){
+
+            window.open(CONFIG.instagram.url,"_blank");
+
+        }else{
+
+            alert("Instagram próximamente.");
+
+        }
+
+    };
+
+}
+
+
+
+// ===============================
+// COMPARTIR HISTORIA
+// ===============================
+
+const btnHistoria = document.getElementById("btnHistoria");
+
+if(btnHistoria){
+
+    btnHistoria.onclick = async()=>{
+
+        const texto =
+        "Hoy viví una hermosa experiencia en Selah Alma Bonita 🌸";
+
+        if(navigator.share){
+
+            navigator.share({
+                title:"Selah Alma Bonita",
+                text:texto
+            });
+
+        }else{
+
+            alert("Tu dispositivo no permite compartir directamente.");
+
+        }
+
+    };
+
+}
+
+
+
+// ===============================
+// LLAMAR
+// ===============================
+
+const btnLlamar = document.getElementById("btnLlamar");
+
+if(btnLlamar){
+
+    btnLlamar.onclick = ()=>{
+
+        window.location.href =
+        "tel:+526642198335";
+
+    };
+
+}
+
+
+
+// ===============================
+// SOLICITAR CITA
+// ===============================
+
+const btnSolicitar =
+document.getElementById("btnSolicitar");
+
+if(btnSolicitar){
+
+    btnSolicitar.onclick = ()=>{
+
+        const mensaje =
+        "Hola Adriana 🌸 Me gustaría agendar una cita en Selah Alma Bonita.";
+
+        window.open(
+
+        "https://wa.me/" +
+        CONFIG.whatsapp.telefono +
+        "?text=" +
+        encodeURIComponent(mensaje),
+
+        "_blank"
+
+        );
+
+    };
+
+}
+
+
+
+// ===============================
+// CALENDARIO
+// ===============================
+
+const btnCalendario =
+document.getElementById("btnCalendario");
+
+if(btnCalendario){
+
+    btnCalendario.onclick = ()=>{
+
+        alert("Próximamente podrás agregar tu cita a tu calendario.");
+
+    };
+
+}
