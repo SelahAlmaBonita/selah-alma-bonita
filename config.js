@@ -214,7 +214,7 @@ const CONFIG = {
 
 recordatorio:60,
 
-titulo:"Cita en Selah Alma Bonita",
+titulo:"Cita en Selah Alma Bonita"
 
     },
 
