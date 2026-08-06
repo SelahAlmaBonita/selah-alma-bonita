@@ -510,3 +510,34 @@ overflow:auto;
     text-align:center;
     cursor:pointer;
 }
+/* ===================================
+   PROGRESO DE SESIONES
+=================================== */
+
+.progreso{
+    margin-top:20px;
+}
+
+.barra{
+    width:100%;
+    height:16px;
+    background:#f3eadc;
+    border-radius:30px;
+    overflow:hidden;
+    margin-top:10px;
+}
+
+#barraProgreso{
+    width:0%;
+    height:100%;
+    background:linear-gradient(90deg,#d4af37,#f7d774);
+    border-radius:30px;
+    transition:1s;
+}
+
+#textoProgreso{
+    margin-top:10px;
+    text-align:center;
+    color:#8d6e63;
+    font-weight:bold;
+}
