@@ -1,11 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Selah Alma Bonita</title>
@@ -14,34 +12,36 @@
 
 </head>
 
-
 <body>
+
+<!-- FLORES Y CORAZONES -->
 
 <div class="petalos">
 
-<span class="petalo" style="left:8%; animation-delay:0s;">❀</span>
-<span class="corazon" style="left:20%; animation-delay:5s;">♡</span>
+<span class="petalo" style="left:8%;animation-delay:0s;">❀</span>
+<span class="corazon" style="left:20%;animation-delay:5s;">♡</span>
 
-<span class="petalo" style="left:35%; animation-delay:9s;">✿</span>
-<span class="corazon" style="left:50%; animation-delay:3s;">♥</span>
+<span class="petalo" style="left:35%;animation-delay:9s;">✿</span>
+<span class="corazon" style="left:50%;animation-delay:3s;">♥</span>
 
-<span class="petalo" style="left:65%; animation-delay:7s;">❁</span>
-<span class="corazon" style="left:82%; animation-delay:12s;">♡</span>
+<span class="petalo" style="left:65%;animation-delay:7s;">❁</span>
+<span class="corazon" style="left:82%;animation-delay:12s;">♡</span>
 
-<span class="petalo" style="left:92%; animation-delay:15s;">✾</span>
+<span class="petalo" style="left:92%;animation-delay:15s;">✾</span>
 
 </div>
 
-<!-- ===============================
-     MÚSICA SELAH
-=============================== -->
+
+
+
+
+<!-- BOTÓN MÚSICA -->
 
 <div class="musica">
 
 <button id="btnMusica">
 🎵
 </button>
-
 
 <audio id="musicaSelah" loop>
 
@@ -54,30 +54,23 @@
 
 
 
-<!-- ===============================
-     CONTENEDOR PRINCIPAL
-=============================== -->
 
+<!-- CONTENEDOR -->
 
 <div class="contenedor">
 
-
-
-<img src="logo.png" alt="Selah Alma Bonita" class="logo">
-
-
+<img
+src="logo.png"
+alt="Selah Alma Bonita"
+class="logo">
 
 <h1>
 
 Selah
 
-<span>
-Alma Bonita
-</span>
+<span>Alma Bonita</span>
 
 </h1>
-
-
 
 <p class="frase">
 
@@ -89,60 +82,75 @@ Detente, respira, sana y florece
 
 
 
-<!-- TARJETA BIENVENIDA -->
+<!-- CUMPLEAÑOS -->
+
+<div
+id="cumpleBox"
+class="oculta">
+</div>
+
+
+
+
+
+<!-- PROMOCIONES -->
+
+<div
+id="promoBox"
+class="oculta">
+</div>
+
+
+
+
+
+<!-- BIENVENIDA -->
 
 <div class="tarjeta">
 
-
 <h2>
+
 🌸 Bienvenida
+
 </h2>
 
-
-
-<p class="saludo" id="saludoPaciente">
+<p
+class="saludo"
+id="saludoPaciente">
 
 Nos llena de alegría recibirte.
 
 </p>
 
-
-
-
-
 <div class="cita">
 
-
 <h3>
+
 Tu próxima cita
+
 </h3>
 
-
-
 <p id="fechaCita">
-📅 Fecha de tu cita
+
+📅 Fecha
+
 </p>
-
-
 
 <p id="horaCita">
-🕙 Hora de tu cita
+
+🕙 Hora
+
 </p>
-
-
 
 <p id="duracionCita">
-⏱️ Duración: 60 minutos
+
+⏱️ Duración
+
 </p>
 
-
-
 </div>
 
-
 </div>
-
-
 
 
 
@@ -150,84 +158,55 @@ Tu próxima cita
 
 <!-- MENSAJE DEL DÍA -->
 
-
 <div class="mensaje">
-
 
 ✨ Hoy elegiste regalarte un momento para ti.
 
-
 </div>
 
 
 
 
 
-
-
-
-<!-- BOTONES PREMIUM -->
-
+<!-- BOTONES -->
 
 <div class="botones">
 
-
-
 <button id="btnMapa">
-
 📍 Cómo llegar
-
 </button>
-
-
-
 
 <button id="btnWhatsApp">
-
 💬 Confirmar asistencia
-
 </button>
 
-
-
+<button id="btnSolicitar">
+🗓️ Solicitar una cita
+</button>
 
 <button id="btnCalendario">
-
 📅 Agregar a mi calendario
-
 </button>
-
-
-
 
 <button id="btnPago">
-
 💳 Formas de pago
-
 </button>
-
-
-
 
 <button id="btnResena">
-
 ⭐ Compartir mi experiencia
-
 </button>
 
+<button id="btnHistoria">
+📸 Compartir mi historia
+</button>
 
+<button id="btnInstagram">
+📷 Instagram
+</button>
 
-</div>
-
-
-
-
-
-
-<!-- VENTANA DE PAGOS -->
-
-<div id="pagoBox" class="oculta">
-
+<button id="btnLlamar">
+☎️ Llamar
+</button>
 
 </div>
 
@@ -235,24 +214,33 @@ Tu próxima cita
 
 
 
+<!-- TARJETA DE PAGOS -->
+
+<div
+id="pagoBox"
+class="oculta">
 </div>
 
 
 
 
 
+<!-- FUTURAS TARJETAS -->
+
+<div
+id="modalGeneral"
+class="oculta">
+</div>
+
+</div>
 
 
 
-<!-- ARCHIVOS JAVASCRIPT -->
+
 
 <script src="config.js"></script>
 
 <script src="script.js"></script>
 
-
-
 </body>
-
 </html>
-```
