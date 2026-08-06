@@ -6,6 +6,25 @@
 const CONFIG = {
 
     //====================================================
+    // CONSULTORIO
+    //====================================================
+
+    consultorio:{
+
+        nombre:"Selah Alma Bonita",
+
+        terapeuta:"Adriana Itzel Guzmán Alarcón",
+
+        telefono:"5216642198335",
+
+        direccion:"Av. Madero 548 Int. 109, Zona Centro, C.P. 22000, Tijuana, Baja California",
+
+        horario:"Lunes a sábado | Previa cita"
+
+    },
+
+
+    //====================================================
     // PACIENTE
     //====================================================
 
@@ -14,13 +33,10 @@ const CONFIG = {
         nombre:"Blanca Margarita",
 
         categoria:"adulto",
-        // adulto | adolescente | niño
 
         genero:"femenino",
-        // femenino | masculino
 
         tratamiento:"nombre",
-        // nombre | sr | sra
 
         fecha:"08 de agosto",
 
@@ -28,7 +44,13 @@ const CONFIG = {
 
         duracion:"60 minutos",
 
-        terapia:"Biomagnetismo"
+        terapia:"Biomagnetismo",
+
+        sesiones:1,
+
+        objetivo:10,
+
+        cumpleanos:""
 
     },
 
@@ -41,14 +63,13 @@ const CONFIG = {
 
         activo:false,
 
-        mensaje:
-        "¡Feliz cumpleaños! Que este nuevo año esté lleno de salud, paz y bienestar. Gracias por permitirnos acompañarte. 🌸"
+        mensaje:"¡Feliz cumpleaños! Que este nuevo año esté lleno de salud, paz y bienestar. Gracias por permitirnos acompañarte. 🌸"
 
     },
 
 
     //====================================================
-    // PROMOCIÓN
+    // PROMOCIONES
     //====================================================
 
     promocion:{
@@ -63,12 +84,18 @@ const CONFIG = {
 
 
     //====================================================
-    // WHATSAPP
+    // CONTACTO
     //====================================================
 
     whatsapp:{
 
         telefono:"5216642198335"
+
+    },
+
+    telefono:{
+
+        numero:"tel:+526642198335"
 
     },
 
@@ -90,9 +117,9 @@ const CONFIG = {
 
     google:{
 
-    url:"https://g.page/r/CfGLgE1ohr1AEBM/review"
+        url:"https://g.page/r/CfGLgE1ohr1AEBM/review"
 
-},
+    },
 
 
     //====================================================
@@ -101,13 +128,26 @@ const CONFIG = {
 
     instagram:{
 
-        url:""
+        url:"https://instagram.com/selahalmabonita"
 
     },
 
 
     //====================================================
-    // DATOS BANCARIOS PREMIUM
+    // OTRAS REDES
+    //====================================================
+
+    redes:{
+
+        facebook:"",
+
+        tiktok:""
+
+    },
+
+
+    //====================================================
+    // PAGOS
     //====================================================
 
     pago:{
@@ -124,7 +164,7 @@ const CONFIG = {
 
 
     //====================================================
-    // MÚSICA SELAH
+    // MÚSICA
     //====================================================
 
     musica:{
@@ -143,6 +183,60 @@ const CONFIG = {
         compartirGoogle:true,
 
         compartirInstagram:true
+
+    },
+
+
+    //====================================================
+    // HISTORIA DE INSTAGRAM
+    //====================================================
+
+    historia:{
+
+        activa:true,
+
+        mensaje:"Hoy me regalé un momento de bienestar en Selah Alma Bonita 🌸✨"
+
+    },
+
+
+    //====================================================
+    // AGENDA
+    //====================================================
+
+    agenda:{
+
+        solicitarCita:true,
+
+        agregarCalendario:true
+
+    },
+
+
+    //====================================================
+    // RECORDATORIOS
+    //====================================================
+
+    recordatorio:{
+
+        activo:true,
+
+        horasAntes:24
+
+    },
+
+
+    //====================================================
+    // ANIMACIONES
+    //====================================================
+
+    animaciones:{
+
+        petalos:true,
+
+        brilloLogo:true,
+
+        musica:true
 
     }
 
