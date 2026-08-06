@@ -206,17 +206,17 @@ const CONFIG = {
 
     agenda:{
 
-        solicitarCita:true,
+    solicitarCita:true,
 
-        agregarCalendario:true
+    agregarCalendario:true,
 
-        direccionEvento:"Av. Madero 548 Int. 109, Zona Centro, Tijuana",
+    direccionEvento:"Av. Madero 548 Int. 109, Zona Centro, Tijuana",
 
-recordatorio:60,
+    recordatorio:60,
 
-titulo:"Cita en Selah Alma Bonita"
+    titulo:"Cita en Selah Alma Bonita"
 
-    },
+},
 
 
     //====================================================
