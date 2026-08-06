@@ -326,3 +326,102 @@ small{
         opacity:0;
     }
 }
+/* ===================================
+   TARJETAS PREMIUM
+=================================== */
+
+#cumpleBox,
+#promoBox{
+    display:block;
+    margin-bottom:20px;
+}
+
+.tarjetaPremium{
+    background:linear-gradient(145deg,#fffdf8,#fff4ea);
+    border:1px solid rgba(212,175,55,.25);
+    border-radius:28px;
+    padding:22px;
+    box-shadow:0 15px 35px rgba(184,134,11,.15);
+    animation:subir .8s ease;
+}
+
+.tarjetaPremium h2{
+    margin-top:0;
+    color:#b8860b;
+}
+
+.tarjetaPremium p{
+    line-height:1.7;
+    color:#7b6654;
+}
+
+.tarjetaPremium button{
+    margin-top:15px;
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#d4af37,#c9972d);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* ===================================
+   BOTONES PREMIUM
+=================================== */
+
+.botones button{
+    min-height:58px;
+    letter-spacing:.3px;
+}
+
+.botones button:active{
+    transform:scale(.98);
+}
+
+/* ===================================
+   LOGO
+=================================== */
+
+.logo:hover{
+    transform:scale(1.03);
+    transition:.4s;
+}
+
+/* ===================================
+   SCROLL
+=================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#d4af37;
+    border-radius:20px;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+
+@media(max-width:480px){
+
+    .contenedor{
+        width:94%;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    h1 span{
+        font-size:26px;
+    }
+
+    .botones button{
+        font-size:16px;
+    }
+
+}
