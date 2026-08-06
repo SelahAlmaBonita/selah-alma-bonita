@@ -875,14 +875,50 @@ if(btnSolicitar){
 // CALENDARIO
 // ===============================
 
-const btnCalendario =
-document.getElementById("btnCalendario");
+// ===============================
+// CALENDARIO PREMIUM
+// ===============================
+
+const btnCalendario = document.getElementById("btnCalendario");
 
 if(btnCalendario){
 
     btnCalendario.onclick = ()=>{
 
-        alert("Próximamente podrás agregar tu cita a tu calendario.");
+        const inicio = prompt(
+            "Escribe la fecha y hora en formato:\n2026-08-08T17:00",
+            "2026-08-08T17:00"
+        );
+
+        if(!inicio) return;
+
+        const fechaInicio = new Date(inicio);
+
+        const fechaFin = new Date(
+            fechaInicio.getTime() +
+            (60 * 60 * 1000)
+        );
+
+        function formato(fecha){
+
+            return fecha
+                .toISOString()
+                .replace(/[-:]/g,"")
+                .split(".")[0] + "Z";
+
+        }
+
+        const url =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" + encodeURIComponent(CONFIG.agenda.titulo) +
+        "&dates=" + formato(fechaInicio) + "/" + formato(fechaFin) +
+        "&location=" + encodeURIComponent(CONFIG.agenda.direccionEvento) +
+        "&details=" + encodeURIComponent(
+            "Terapia: " + paciente.terapia +
+            "\nPaciente: " + paciente.nombre
+        );
+
+        window.open(url,"_blank");
 
     };
 
