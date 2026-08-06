@@ -586,37 +586,161 @@ if(btnInstagram){
 }
 
 
-
 // ===============================
-// COMPARTIR HISTORIA
+// HISTORIA SELAH PREMIUM
 // ===============================
 
 const btnHistoria = document.getElementById("btnHistoria");
+const historiaBox = document.getElementById("historiaBox");
 
-if(btnHistoria){
 
-    btnHistoria.onclick = async()=>{
+if(btnHistoria && historiaBox){
 
-        const texto =
-        "Hoy viví una hermosa experiencia en Selah Alma Bonita 🌸";
+btnHistoria.onclick = ()=>{
 
-        if(navigator.share){
 
-            navigator.share({
-                title:"Selah Alma Bonita",
-                text:texto
-            });
+historiaBox.innerHTML = `
 
-        }else{
+<div class="historiaContenedor">
 
-            alert("Tu dispositivo no permite compartir directamente.");
 
-        }
+<img 
+src="logo.png"
+class="historiaLogo">
 
-    };
+
+<h2>
+🌸 Crea tu historia Selah
+</h2>
+
+
+<p>
+Comparte lo que floreció en ti después de tu experiencia.
+</p>
+
+
+<textarea 
+id="textoHistoria"
+class="historiaTexto"
+placeholder="Hoy me regalé un momento para mí...">
+</textarea>
+
+
+
+<div 
+id="vistaHistoria"
+class="historiaTarjeta">
+
+${CONFIG.historia.mensaje}
+
+<br><br>
+
+✨ Selah Alma Bonita
+
+<br>
+
+Detente, respira, sana y florece
+
+</div>
+
+
+
+<button 
+id="compartirHistoria"
+class="historiaBoton">
+
+📸 Crear mi historia
+
+</button>
+
+
+
+<button 
+id="cerrarHistoria"
+class="historiaBoton historiaCerrra">
+
+Cerrar
+
+</button>
+
+
+</div>
+
+`;
+
+
+historiaBox.classList.remove("oculta");
+
+
+
+const textoHistoria =
+document.getElementById("textoHistoria");
+
+
+const vistaHistoria =
+document.getElementById("vistaHistoria");
+
+
+
+textoHistoria.oninput = ()=>{
+
+vistaHistoria.innerHTML = `
+
+"${textoHistoria.value}"
+
+<br><br>
+
+✨ Selah Alma Bonita
+
+<br>
+
+Detente, respira, sana y florece
+
+`;
+
+};
+
+
+
+document.getElementById("cerrarHistoria").onclick = ()=>{
+
+historiaBox.classList.add("oculta");
+
+};
+
+
+
+document.getElementById("compartirHistoria").onclick = ()=>{
+
+
+if(navigator.share){
+
+
+navigator.share({
+
+title:"Selah Alma Bonita",
+
+text:vistaHistoria.innerText
+
+});
+
+
+}else{
+
+
+alert("Puedes tomar captura de pantalla y compartir tu historia en Instagram 🌸");
+
 
 }
 
+
+};
+
+
+};
+
+
+}
 
 
 // ===============================
