@@ -478,6 +478,10 @@ small{
     border:2px solid #d4af37;
     color:#8d6e63;
     font-style:italic;
+
+    max-height:250px;
+overflow:auto;
+    
 }
 
 .historiaLogo{
