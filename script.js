@@ -903,63 +903,20 @@ if(btnSolicitar){
 // CALENDARIO PREMIUM
 // ===============================
 
+// ===============================
+// CALENDARIO PREMIUM
+// ===============================
+
 const btnCalendario = document.getElementById("btnCalendario");
 
 if(btnCalendario){
 
     btnCalendario.onclick = ()=>{
 
-    const inicio = new Date(
-        "2026-08-08T17:00:00"
-    );
+        const inicio = new Date("2026-08-08T17:00:00");
 
-    const fin = new Date(
-        inicio.getTime() + 60*60000
-    );
-
-    function formato(fecha){
-
-        return fecha
-        .toISOString()
-        .replace(/-|:|\.\d+/g,"");
-
-    }
-
-    const url =
-
-    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-
-    "&text=" + encodeURIComponent(CONFIG.agenda.titulo) +
-
-    "&dates=" +
-
-    formato(inicio) +
-
-    "/" +
-
-    formato(fin) +
-
-    "&location=" +
-
-    encodeURIComponent(CONFIG.agenda.direccionEvento) +
-
-    "&details=" +
-
-    encodeURIComponent(
-        "Nos vemos en Selah Alma Bonita 🌸"
-    );
-
-    window.open(url,"_blank");
-
-};
-
-        if(!inicio) return;
-
-        const fechaInicio = new Date(inicio);
-
-        const fechaFin = new Date(
-            fechaInicio.getTime() +
-            (60 * 60 * 1000)
+        const fin = new Date(
+            inicio.getTime() + 60 * 60000
         );
 
         function formato(fecha){
@@ -974,11 +931,11 @@ if(btnCalendario){
         const url =
         "https://calendar.google.com/calendar/render?action=TEMPLATE" +
         "&text=" + encodeURIComponent(CONFIG.agenda.titulo) +
-        "&dates=" + formato(fechaInicio) + "/" + formato(fechaFin) +
+        "&dates=" + formato(inicio) + "/" + formato(fin) +
         "&location=" + encodeURIComponent(CONFIG.agenda.direccionEvento) +
         "&details=" + encodeURIComponent(
-            "Terapia: " + paciente.terapia +
-            "\nPaciente: " + paciente.nombre
+            "Paciente: " + paciente.nombre +
+            "\nTerapia: " + paciente.terapia
         );
 
         window.open(url,"_blank");
