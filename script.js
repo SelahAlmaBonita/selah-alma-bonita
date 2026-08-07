@@ -1134,3 +1134,5 @@ console.log(
    "Selah Alma Bonita Premium cargada correctamente 🌸"
 );
 });
+
+console.log("SELAH SCRIPT CARGADO");
