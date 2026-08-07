@@ -903,10 +903,6 @@ if(btnSolicitar){
 // CALENDARIO PREMIUM
 // ===============================
 
-// ===============================
-// CALENDARIO PREMIUM
-// ===============================
-
 const btnCalendario = document.getElementById("btnCalendario");
 
 if(btnCalendario){
