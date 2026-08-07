@@ -2,6 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+   alert("SELAH: el script sí está funcionando");
+   
 // ==================================================
 // VERIFICAR CONFIGURACIÓN
 // ==================================================
