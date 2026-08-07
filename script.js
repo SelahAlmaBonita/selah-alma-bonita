@@ -1,6 +1,6 @@
 // ====================================================== // SELAH ALMA BONITA PREMIUM // SCRIPT PRINCIPAL — VERSIÓN LIMPIA Y CONSOLIDADA // ======================================================
 
-document.addEventListener(“DOMContentLoaded”, () => {
+asaa
 
 // ==================================================
 // VERIFICAR CONFIGURACIÓN
