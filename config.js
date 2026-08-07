@@ -1,671 +1,202 @@
-======================================================
+// ======================================================
 // SELAH ALMA BONITA PREMIUM
-// SCRIPT PRINCIPAL — VERSIÓN CONSOLIDADA
+// CONFIGURACIÓN GENERAL
 // ======================================================
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    if (typeof CONFIG === "undefined") {
-        console.error("No se encontró config.js");
-        return;
-    }
-
-    const paciente = CONFIG.paciente || {};
+const CONFIG = {
 
     // ==================================================
-    // UTILIDADES
+    // CONSULTORIO
     // ==================================================
 
-    const $ = (id) => document.getElementById(id);
+    consultorio: {
+        nombre: "Selah Alma Bonita",
+        terapeuta: "Adriana Itzel Guzmán Alarcón",
+        telefono: "5216642198335",
+        direccion: "Av. Madero 548 Int. 109, Zona Centro, C.P. 22000, Tijuana, Baja California",
+        horario: "Lunes a sábado | Previa cita"
+    },
 
-    function abrir(url) {
-        if (url) window.open(url, "_blank");
-    }
-
-    function mostrar(id) {
-        const el = $(id);
-        if (el) el.classList.remove("oculta");
-    }
-
-    function ocultar(id) {
-        const el = $(id);
-        if (el) el.classList.add("oculta");
-    }
 
     // ==================================================
-    // SALUDO PERSONALIZADO
+    // PACIENTE
     // ==================================================
 
-    function saludoPaciente() {
-        let saludo;
+    paciente: {
+        nombre: "Blanca Margarita",
+        categoria: "adulto",
+        genero: "femenino",
+        tratamiento: "nombre",
 
-        if (paciente.categoria === "niño") {
-            saludo = paciente.genero === "masculino"
-                ? "¡Qué gusto recibirte"
-                : "¡Qué gusto recibirte";
-        } else {
-            saludo = paciente.genero === "masculino"
-                ? "Bienvenido"
-                : "Bienvenida";
-        }
+        fecha: "08 de agosto",
+        hora: "5:00 p. m.",
+        duracion: "60 minutos",
 
-        if (paciente.tratamiento === "sr") {
-            return `${saludo} Sr. ${paciente.nombre}`;
-        }
+        terapia: "Biomagnetismo",
 
-        if (paciente.tratamiento === "sra") {
-            return `${saludo} Sra. ${paciente.nombre}`;
-        }
+        sesiones: 1,
+        objetivo: 10,
 
-        return `${saludo} ${paciente.nombre}`;
-    }
+        cumpleanos: ""
+    },
 
-    const saludo = document.querySelector(".saludo");
-
-    if (saludo) {
-        saludo.innerHTML =
-            saludoPaciente() +
-            "<br><br>Nos llena de alegría recibirte en Selah Alma Bonita. 🌸";
-    }
-
-    // ==================================================
-    // DATOS DE LA CITA
-    // ==================================================
-
-    if ($("fechaCita")) {
-        $("fechaCita").textContent = "📅 " + (paciente.fecha || "");
-    }
-
-    if ($("horaCita")) {
-        $("horaCita").textContent = "🕙 " + (paciente.hora || "");
-    }
-
-    if ($("duracionCita")) {
-        $("duracionCita").textContent = "⏱️ Duración: " + (paciente.duracion || "");
-    }
-
-    // ==================================================
-    // PROGRESO
-    // ==================================================
-
-    const barraProgreso = $("barraProgreso");
-    const textoProgreso = $("textoProgreso");
-
-    if (barraProgreso && textoProgreso) {
-        const sesiones = Number(paciente.sesiones) || 0;
-        const objetivo = Number(paciente.objetivo) || 1;
-        const porcentaje = Math.min(100, Math.max(0, (sesiones / objetivo) * 100));
-
-        barraProgreso.style.width = porcentaje + "%";
-        textoProgreso.textContent =
-            `${sesiones} de ${objetivo} sesiones completadas 🌸`;
-    }
-
-    // ==================================================
-    // MENSAJE DEL DÍA
-    // ==================================================
-
-    const mensajes = [
-        "Hoy elegiste regalarte un momento para ti. 🌸",
-        "Respira profundo, tu bienestar también merece espacio.",
-        "Cada pequeño paso hacia ti es una forma de amor.",
-        "Tu cuerpo merece cuidado, escucha y descanso.",
-        "Hoy es un buen día para florecer.",
-        "Permítete recibir bienestar y calma.",
-        "Tu proceso merece paciencia y amor.",
-        "Regálate un momento de conexión contigo.",
-        "Tu bienestar comienza con una decisión.",
-        "Que hoy encuentres paz en cada respiración.",
-        "Cuida tu cuerpo, honra tu camino.",
-        "Cada sesión es una oportunidad de reconectar.",
-        "Tu bienestar es una prioridad.",
-        "Confía en tu proceso.",
-        "Respira, suelta y permite sanar.",
-        "Hoy eliges cuidarte.",
-        "Tu cuerpo tiene sabiduría.",
-        "Un momento para ti puede transformar tu día.",
-        "La calma también es medicina.",
-        "Escucharte es un acto de amor.",
-        "Pequeños cambios crean grandes resultados.",
-        "Tu bienestar florece paso a paso.",
-        "Gracias por confiar en Selah Alma Bonita.",
-        "Que esta sesión sea un espacio de paz.",
-        "Hoy mereces sentirte bien.",
-        "Tu energía merece cuidado.",
-        "Cada día es una nueva oportunidad.",
-        "Con amor y paciencia todo proceso florece.",
-        "Regálate calma, presencia y bienestar.",
-        "Que Selah sea un momento para ti."
-    ];
-
-    const mensajeDiv = document.querySelector(".mensaje");
-
-    if (mensajeDiv) {
-        const dia = new Date().getDate();
-        mensajeDiv.textContent = "✨ " + mensajes[dia % mensajes.length];
-    }
 
     // ==================================================
     // CUMPLEAÑOS
     // ==================================================
 
-    const cumpleBox = $("cumpleBox");
-    const cumpleConfig = CONFIG.cumpleanos || {};
+    cumpleanos: {
+        activo: false,
 
-    if (cumpleBox) {
-        cumpleBox.innerHTML = "";
+        mensaje:
+            "¡Feliz cumpleaños! Que este nuevo año esté lleno de salud, paz y bienestar. Gracias por permitirnos acompañarte. 🌸"
+    },
 
-        if (cumpleConfig.activo && paciente.cumpleanos) {
-            const hoy = new Date();
-            const cumple = String(paciente.cumpleanos).trim();
-
-            const partes = cumple.split(/[-/]/).map(Number);
-            let esCumple = false;
-
-            if (partes.length >= 2) {
-                const mes = partes[0];
-                const dia = partes[1];
-                esCumple = hoy.getMonth() + 1 === mes && hoy.getDate() === dia;
-            }
-
-            if (esCumple) {
-                cumpleBox.innerHTML = `
-                    <div class="tarjetaPremium">
-                        <h2>🎂 ¡Feliz cumpleaños, ${paciente.nombre}! 🌸</h2>
-                        <p>${cumpleConfig.mensaje || ""}</p>
-                    </div>
-                `;
-                mostrar("cumpleBox");
-            } else {
-                ocultar("cumpleBox");
-            }
-        } else {
-            ocultar("cumpleBox");
-        }
-    }
 
     // ==================================================
     // PROMOCIONES
     // ==================================================
 
-    const promoBox = $("promoBox");
-    const promo = CONFIG.promocion || {};
+    promocion: {
+        activa: false,
+        titulo: "",
+        descripcion: ""
+    },
 
-    if (promoBox) {
-        if (promo.activa) {
-            promoBox.innerHTML = `
-                <div class="tarjetaPremium">
-                    <h2>✨ ${promo.titulo || "Promoción especial"}</h2>
-                    <p>${promo.descripcion || ""}</p>
-                </div>
-            `;
-            mostrar("promoBox");
-        } else {
-            ocultar("promoBox");
-        }
-    }
 
     // ==================================================
-    // WHATSAPP — CONFIRMAR
+    // WHATSAPP
     // ==================================================
 
-    const btnWhatsApp = $("btnWhatsApp");
+    whatsapp: {
+        telefono: "5216642198335"
+    },
 
-    if (btnWhatsApp) {
-        btnWhatsApp.onclick = () => {
-            const texto = `Hola Adriana 🌸
 
-Queda confirmada mi asistencia a la siguiente cita en Selah Alma Bonita.
+    // ==================================================
+    // TELÉFONO
+    // ==================================================
 
-👤 Paciente:
-${paciente.nombre || ""}
+    telefono: {
+        numero: "tel:+526642198335"
+    },
 
-📅 Fecha:
-${paciente.fecha || ""}
-
-🕙 Hora:
-${paciente.hora || ""}
-
-🌿 Terapia:
-${paciente.terapia || ""}
-
-Gracias por acompañarme en este proceso de bienestar y sanación. 🌸
-
-Nos vemos muy pronto. ✨`;
-
-            abrir(
-                "https://wa.me/" +
-                (CONFIG.whatsapp?.telefono || "") +
-                "?text=" +
-                encodeURIComponent(texto)
-            );
-        };
-    }
 
     // ==================================================
     // GOOGLE MAPS
     // ==================================================
 
-    const btnMapa = $("btnMapa");
+    maps: {
+        url: "https://maps.app.goo.gl/nvW6SGQAr4T17DMW7"
+    },
 
-    if (btnMapa) {
-        btnMapa.onclick = () => abrir(CONFIG.maps?.url);
-    }
-
-    // ==================================================
-    // MÚSICA
-    // ==================================================
-
-    const btnMusica = $("btnMusica");
-    const musicaSelah = $("musicaSelah");
-
-    if (btnMusica && musicaSelah) {
-        btnMusica.onclick = async () => {
-            try {
-                if (musicaSelah.paused) {
-                    await musicaSelah.play();
-                    btnMusica.textContent = "⏸️";
-                } else {
-                    musicaSelah.pause();
-                    btnMusica.textContent = "🎵";
-                }
-            } catch (error) {
-                console.log("No fue posible reproducir la música:", error);
-            }
-        };
-    }
 
     // ==================================================
-    // PAGOS PREMIUM
+    // GOOGLE RESEÑAS
     // ==================================================
 
-    const btnPago = $("btnPago");
-    const pagoBox = $("pagoBox");
+    google: {
+        url: "https://g.page/r/CfGLgE1ohr1AEBM/review"
+    },
 
-    if (btnPago && pagoBox) {
-        btnPago.onclick = () => {
-            const pago = CONFIG.pago || {};
-
-            pagoBox.innerHTML = `
-                <div class="pagoTarjeta">
-                    <h2>🌸 Selah Alma Bonita</h2>
-                    <h3>${pago.banco || ""}</h3>
-
-                    <div class="datoPago">
-                        <span>Titular</span>
-                        <b>${pago.titular || ""}</b>
-                    </div>
-
-                    <div class="datoPago">
-                        <span>🏦 Cuenta</span>
-                        <b>${pago.cuenta || ""}</b>
-                        <button type="button" onclick="copiarPago('${pago.cuenta || ""}')">
-                            📋 Copiar cuenta
-                        </button>
-                    </div>
-
-                    <div class="datoPago">
-                        <span>🔐 CLABE</span>
-                        <b>${pago.clabe || ""}</b>
-                        <button type="button" onclick="copiarPago('${pago.clabe || ""}')">
-                            📋 Copiar CLABE
-                        </button>
-                    </div>
-
-                    <button id="enviarComprobante" type="button">
-                        📲 Compartir comprobante por WhatsApp
-                    </button>
-
-                    <button id="cerrarPago" type="button">
-                        ✕ Cerrar
-                    </button>
-                </div>
-            `;
-
-            mostrar("pagoBox");
-
-            const cerrarPago = $("cerrarPago");
-            const enviarComprobante = $("enviarComprobante");
-
-            if (cerrarPago) {
-                cerrarPago.onclick = () => ocultar("pagoBox");
-            }
-
-            if (enviarComprobante) {
-                enviarComprobante.onclick = () => {
-                    const mensaje = `Hola Adriana 🌸
-
-Te comparto mi comprobante de pago correspondiente a mi cita en Selah Alma Bonita.
-
-👤 Paciente:
-${paciente.nombre || ""}
-
-📅 Fecha:
-${paciente.fecha || ""}
-
-🕙 Hora:
-${paciente.hora || ""}
-
-🌿 Terapia:
-${paciente.terapia || ""}
-
-Gracias por acompañarme en este proceso de bienestar y sanación. 🌸✨`;
-
-                    abrir(
-                        "https://wa.me/" +
-                        (CONFIG.whatsapp?.telefono || "") +
-                        "?text=" +
-                        encodeURIComponent(mensaje)
-                    );
-                };
-            }
-        };
-    }
-
-    // ==================================================
-    // COPIAR DATOS BANCARIOS
-    // ==================================================
-
-    window.copiarPago = async function(texto) {
-        try {
-            await navigator.clipboard.writeText(texto);
-
-            const aviso = document.createElement("div");
-            aviso.className = "avisoCopia";
-            aviso.textContent = "✨ Copiado correctamente";
-            document.body.appendChild(aviso);
-
-            setTimeout(() => aviso.remove(), 2000);
-        } catch (error) {
-            alert("No fue posible copiar automáticamente.");
-        }
-    };
-
-    // ==================================================
-    // RESEÑA
-    // ==================================================
-
-    const btnResena = $("btnResena");
-
-    if (btnResena) {
-        btnResena.onclick = () => {
-            if (CONFIG.experiencia?.compartirGoogle && CONFIG.google?.url) {
-                abrir(CONFIG.google.url);
-            } else if (
-                CONFIG.experiencia?.compartirInstagram &&
-                CONFIG.instagram?.url
-            ) {
-                abrir(CONFIG.instagram.url);
-            } else {
-                alert("Próximamente podrás compartir tu experiencia.");
-            }
-        };
-    }
 
     // ==================================================
     // INSTAGRAM
     // ==================================================
 
-    const btnInstagram = $("btnInstagram");
+    instagram: {
+        url: "https://instagram.com/selahalmabonita"
+    },
 
-    if (btnInstagram) {
-        btnInstagram.onclick = () => {
-            if (CONFIG.instagram?.url) {
-                abrir(CONFIG.instagram.url);
-            } else {
-                alert("Instagram próximamente.");
-            }
-        };
+
+    // ==================================================
+    // OTRAS REDES
+    // ==================================================
+
+    redes: {
+        facebook: "",
+        tiktok: ""
+    },
+
+
+    // ==================================================
+    // PAGOS
+    // ==================================================
+
+    pago: {
+        banco: "Banorte",
+        titular: "Adriana Itzel Guzmán Alarcón",
+        cuenta: "1220403183",
+        clabe: "072028012204031831"
+    },
+
+
+    // ==================================================
+    // MÚSICA
+    // ==================================================
+
+    musica: {
+        activa: true
+    },
+
+
+    // ==================================================
+    // EXPERIENCIA
+    // ==================================================
+
+    experiencia: {
+        compartirGoogle: true,
+        compartirInstagram: true
+    },
+
+
+    // ==================================================
+    // HISTORIA
+    // ==================================================
+
+    historia: {
+        activa: true,
+
+        mensaje:
+            "Hoy me regalé un momento de bienestar en Selah Alma Bonita 🌸✨"
+    },
+
+
+    // ==================================================
+    // AGENDA
+    // ==================================================
+
+    agenda: {
+        solicitarCita: true,
+        agregarCalendario: true,
+
+        direccionEvento:
+            "Av. Madero 548 Int. 109, Zona Centro, Tijuana",
+
+        recordatorio: 60,
+
+        titulo: "Cita en Selah Alma Bonita"
+    },
+
+
+    // ==================================================
+    // RECORDATORIOS
+    // ==================================================
+
+    recordatorio: {
+        activo: true,
+        horasAntes: 24
+    },
+
+
+    // ==================================================
+    // ANIMACIONES
+    // ==================================================
+
+    animaciones: {
+        petalos: true,
+        brilloLogo: true,
+        musica: true
     }
 
-    // ==================================================
-    // HISTORIA SELAH PREMIUM
-    // ==================================================
-
-    const btnHistoria = $("btnHistoria");
-    const historiaBox = $("historiaBox");
-
-    if (btnHistoria && historiaBox) {
-        btnHistoria.onclick = () => {
-
-            historiaBox.innerHTML = `
-                <div class="historiaContenedor">
-
-                    <h2>📸 Mi momento Selah</h2>
-
-                    <textarea
-                        id="textoHistoria"
-                        class="historiaTexto"
-                        placeholder="Escribe aquí cómo fue tu experiencia..."></textarea>
-
-                    <input
-                        id="fotoHistoria"
-                        type="file"
-                        accept="image/*"
-                        style="width:100%;margin-top:15px;">
-
-                    <div id="vistaHistoria" class="historiaTarjeta">
-                        <p>Tu experiencia aparecerá aquí. 🌸</p>
-                        <strong>✨ Selah Alma Bonita</strong>
-                        <br>
-                        Detente, respira, sana y florece
-                    </div>
-
-                    <button id="compartirHistoria" type="button">
-                        📲 Compartir mi historia
-                    </button>
-
-                    <button id="cerrarHistoria" type="button">
-                        ✕ Cerrar
-                    </button>
-
-                </div>
-            `;
-
-            mostrar("historiaBox");
-
-            const textoHistoria = $("textoHistoria");
-            const fotoHistoria = $("fotoHistoria");
-            const vistaHistoria = $("vistaHistoria");
-
-            function actualizarHistoria() {
-                const texto = textoHistoria?.value?.trim() || "Mi momento de bienestar en Selah Alma Bonita. 🌸";
-                const imagen = vistaHistoria.dataset.imagen || "";
-
-                vistaHistoria.innerHTML = `
-                    ${imagen ? `<img src="${imagen}" alt="Experiencia Selah" style="width:100%;border-radius:20px;margin-bottom:15px;">` : ""}
-                    <p>"${texto.replace(/</g, "&lt;").replace(/>/g, "&gt;")}"</p>
-                    <br>
-                    ✨ Selah Alma Bonita
-                    <br>
-                    Detente, respira, sana y florece
-                    <br><br>
-                    #SelahAlmaBonita
-                `;
-            }
-
-            if (textoHistoria) {
-                textoHistoria.oninput = actualizarHistoria;
-            }
-
-            if (fotoHistoria) {
-                fotoHistoria.onchange = () => {
-                    const archivo = fotoHistoria.files?.[0];
-
-                    if (!archivo) return;
-
-                    const lector = new FileReader();
-
-                    lector.onload = (e) => {
-                        vistaHistoria.dataset.imagen = e.target.result;
-                        actualizarHistoria();
-                    };
-
-                    lector.readAsDataURL(archivo);
-                };
-            }
-
-            const cerrarHistoria = $("cerrarHistoria");
-
-            if (cerrarHistoria) {
-                cerrarHistoria.onclick = () => ocultar("historiaBox");
-            }
-
-            const compartirHistoria = $("compartirHistoria");
-
-            if (compartirHistoria) {
-                compartirHistoria.onclick = async () => {
-
-                    if (typeof html2canvas === "undefined") {
-                        alert("No se pudo cargar el creador de historias.");
-                        return;
-                    }
-
-                    try {
-                        const canvas = await html2canvas(vistaHistoria);
-
-                        canvas.toBlob(async (blob) => {
-                            if (!blob) return;
-
-                            const archivo = new File(
-                                [blob],
-                                "SelahAlmaBonita.png",
-                                { type: "image/png" }
-                            );
-
-                            if (
-                                navigator.canShare &&
-                                navigator.canShare({ files: [archivo] })
-                            ) {
-                                await navigator.share({
-                                    title: "Selah Alma Bonita",
-                                    text: "Mi experiencia en Selah Alma Bonita 🌸 #SelahAlmaBonita",
-                                    files: [archivo]
-                                });
-                            } else {
-                                alert("Tu dispositivo no permite compartir imágenes automáticamente.");
-                            }
-                        }, "image/png");
-
-                    } catch (error) {
-                        console.error(error);
-                        alert("No fue posible crear la historia.");
-                    }
-                };
-            }
-        };
-    }
-
-    // ==================================================
-    // LLAMAR
-    // ==================================================
-
-    const btnLlamar = $("btnLlamar");
-
-    if (btnLlamar) {
-        btnLlamar.onclick = () => {
-            const numero = CONFIG.telefono?.numero || CONFIG.consultorio?.telefono;
-            if (numero) window.location.href = numero.startsWith("tel:") ? numero : "tel:" + numero;
-        };
-    }
-
-    // ==================================================
-    // SOLICITAR CITA
-    // ==================================================
-
-    const btnSolicitar = $("btnSolicitar");
-
-    if (btnSolicitar) {
-        btnSolicitar.onclick = () => {
-            const mensaje =
-                "Hola Adriana 🌸 Me gustaría agendar una cita en Selah Alma Bonita.";
-
-            abrir(
-                "https://wa.me/" +
-                (CONFIG.whatsapp?.telefono || "") +
-                "?text=" +
-                encodeURIComponent(mensaje)
-            );
-        };
-    }
-
-    // ==================================================
-    // CALENDARIO GOOGLE
-    // ==================================================
-
-    const btnCalendario = $("btnCalendario");
-
-    if (btnCalendario) {
-        btnCalendario.onclick = () => {
-
-            const titulo = CONFIG.agenda?.titulo || "Cita en Selah Alma Bonita";
-            const duracionTexto = paciente.duracion || "60 minutos";
-
-            const fechaTexto = paciente.fecha || "";
-            const horaTexto = paciente.hora || "";
-
-            const meses = {
-                enero: 0, febrero: 1, marzo: 2, abril: 3,
-                mayo: 4, junio: 5, julio: 6, agosto: 7,
-                septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11
-            };
-
-            const matchFecha = fechaTexto
-                .toLowerCase()
-                .match(/(\d{1,2})\s+de\s+([a-záéíóú]+)/);
-
-            const matchHora = horaTexto
-                .toLowerCase()
-                .match(/(\d{1,2})(?::(\d{2}))?\s*(a\.?\s*m\.?|p\.?\s*m\.?)/);
-
-            if (!matchFecha || !matchHora) {
-                alert("No se pudo interpretar la fecha y hora de la cita.");
-                return;
-            }
-
-            const dia = Number(matchFecha[1]);
-            const mes = meses[matchFecha[2]];
-
-            let hora = Number(matchHora[1]);
-            const minutos = Number(matchHora[2] || 0);
-            const pm = matchHora[3].replace(/\s/g, "").startsWith("p");
-
-            if (pm && hora < 12) hora += 12;
-            if (!pm && hora === 12) hora = 0;
-
-            const ahora = new Date();
-            let anio = ahora.getFullYear();
-
-            let inicio = new Date(anio, mes, dia, hora, minutos);
-
-            if (inicio < ahora) {
-                inicio = new Date(anio + 1, mes, dia, hora, minutos);
-            }
-
-            const duracionMatch = duracionTexto.match(/\d+/);
-            const duracionMin = Number(duracionMatch?.[0] || 60);
-
-            const fin = new Date(inicio.getTime() + duracionMin * 60000);
-
-            function formatoCalendario(fecha) {
-                return fecha
-                    .toISOString()
-                    .replace(/[-:]/g, "")
-                    .replace(/\.\d{3}/, "");
-            }
-
-            const url =
-                "https://calendar.google.com/calendar/render?action=TEMPLATE" +
-                "&text=" + encodeURIComponent(titulo) +
-                "&dates=" + formatoCalendario(inicio) + "/" + formatoCalendario(fin) +
-                "&location=" + encodeURIComponent(CONFIG.agenda?.direccionEvento || CONFIG.consultorio?.direccion || "") +
-                "&details=" + encodeURIComponent(
-                    "Paciente: " + (paciente.nombre || "") +
-                    "\nTerapia: " + (paciente.terapia || "")
-                );
-
-            abrir(url);
-        };
-    }
-
-});
+};
