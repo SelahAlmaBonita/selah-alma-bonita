@@ -432,8 +432,8 @@ if (citaVencida && !esPaginaGeneral) {
     }
 
     // ==================================================
-// CUMPLEAÑOS
-// ==================================================
+    // CUMPLEAÑOS
+    // ==================================================
 
 const cumpleBox = $("cumpleBox");
 const cumpleConfig = CONFIG.cumpleanos || {};
