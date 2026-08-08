@@ -463,37 +463,45 @@ if (
         }
     }
 
-    // ==============================================
-    // PREPARACIÓN PARA LA SESIÓN
-    // ==============================================
+   // ==============================================
+   // PREPARACIÓN PARA LA SESIÓN
+   // ==============================================
 
-    const preparacionBox = document.createElement("div");
-    preparacionBox.className = "tarjeta";
+const preparacionBox = document.createElement("div");
+preparacionBox.className = "tarjeta";
 
-    let textoPreparacion =
-        "<h3>🌿 Prepárate para tu sesión</h3>" +
-        "<p>💧 Mantente bien hidratado/a.</p>" +
-        "<p>👗 Usa ropa cómoda.</p>" +
-        "<p>🍃 Procura comer ligero antes de tu cita.</p>";
+// Texto personalizado según género
+const palabraHidratacion =
+    paciente.genero === "masculino"
+        ? "hidratado"
+        : "hidratada";
 
-    // Pantuflas a partir de la segunda sesión
-    if ((Number(paciente.sesiones) || 0) >= 1) {
+let textoPreparacion =
+    "<h3>🌿 Prepárate para tu sesión</h3>" +
+    "<p>💧 Mantente bien " + palabraHidratacion + ".</p>" +
+    "<p>👕 Usa ropa cómoda.</p>" +
+    "<p>🍃 Procura comer ligero antes de tu cita.</p>";
 
-        textoPreparacion +=
-            "<p>🩷 <strong>Recuerda traer tus pantuflas Selah.</strong></p>";
-    }
+// Pantuflas Selah a partir de la segunda sesión
+if ((Number(paciente.sesiones) || 0) >= 1) {
 
     textoPreparacion +=
-        "<p>✨ Regálate unos minutos para llegar con calma.</p>";
+        "<p>🩷 <strong>Recuerda traer tus pantuflas Selah.</strong></p>";
+}
 
-    preparacionBox.innerHTML = textoPreparacion;
+textoPreparacion +=
+    "<p>✨ Regálate unos minutos para llegar con calma.</p>";
 
-    if (citaContenedor) {
-        citaContenedor.insertAdjacentElement(
-            "afterend",
-            preparacionBox
-        );
-    }
+preparacionBox.innerHTML = textoPreparacion;
+
+if (citaContenedor) {
+
+    citaContenedor.insertAdjacentElement(
+        "afterend",
+        preparacionBox
+    );
+}
+
 }
     
     // ==================================================
