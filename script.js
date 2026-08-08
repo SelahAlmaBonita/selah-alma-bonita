@@ -207,20 +207,10 @@ if (tituloBienvenida) {
         btnCalendarioGeneral.style.display = "none";
     }
 }
-    
-    if (paciente.tratamiento === "sra") {
-        nombreMostrar = "Sra. " + nombreMostrar;
-    }
 
-    saludoElemento.innerHTML =
-        "<strong>" + nombreMostrar + "</strong>" +
-        "<br><br>" +
-        "Nos llena de alegría recibirte en Selah Alma Bonita. 🌸";
-}
-
-    // ==================================================
-    // DATOS DE LA CITA
-    // ==================================================
+// ==================================================
+// DATOS DE LA CITA
+// ==================================================
 
     const fechaCita = $("fechaCita");
     const horaCita = $("horaCita");
