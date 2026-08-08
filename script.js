@@ -5,21 +5,85 @@
 
 document.addEventListener("DOMContentLoaded", async function () {
 
-    // ==================================================
-    // COMPROBACIÓN
-    // ==================================================
+// ==================================================
+// COMPROBACIÓN Y CARGA DEL PACIENTE
+// ==================================================
 
-    console.log("SELAH SCRIPT CARGADO");
+console.log("SELAH SCRIPT CARGADO");
 
-    if (typeof CONFIG === "undefined") {
-        console.error("ERROR: No se encontró CONFIG.");
-        alert("Error: no se encontró config.js");
+if (typeof CONFIG === "undefined") {
+    console.error("ERROR: No se encontró CONFIG.");
+    alert("Error: no se encontró config.js");
+    return;
+}
+
+console.log("CONFIG cargado correctamente.");
+
+// Paciente de respaldo
+let paciente = CONFIG.paciente || {};
+
+// Leer el código personal desde el enlace
+const parametros = new URLSearchParams(window.location.search);
+const codigoPaciente = parametros.get("p");
+
+if (codigoPaciente) {
+
+    try {
+
+        const respuesta = await fetch(
+            SUPABASE_URL + "rpc/obtener_paciente",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": SUPABASE_KEY
+                },
+                body: JSON.stringify({
+                    p_codigo: codigoPaciente
+                })
+            }
+        );
+
+        if (!respuesta.ok) {
+            throw new Error(
+                "Supabase respondió con estado " + respuesta.status
+            );
+        }
+
+        const datos = await respuesta.json();
+
+        if (Array.isArray(datos) && datos.length > 0) {
+
+            paciente = datos[0];
+
+            console.log(
+                "Paciente cargado desde Supabase:",
+                paciente.nombre
+            );
+
+        } else {
+
+            alert(
+                "No encontramos los datos correspondientes a este enlace."
+            );
+
+            return;
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Error al cargar paciente desde Supabase:",
+            error
+        );
+
+        alert(
+            "No fue posible cargar la información de tu cita."
+        );
+
         return;
     }
-
-    console.log("CONFIG cargado correctamente.");
-
-    const paciente = CONFIG.paciente || {};
+}
 
     // ==================================================
     // UTILIDADES
