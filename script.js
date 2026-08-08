@@ -709,41 +709,78 @@ if (
     }
 
     // ==================================================
-    // WHATSAPP — CONFIRMAR ASISTENCIA
+    // WHATSAPP — CONFIRMAR O REPROGRAMAR CITA
     // ==================================================
 
-    const btnWhatsApp = $("btnWhatsApp");
+const btnWhatsApp = $("btnWhatsApp");
+const btnReprogramar = $("btnReprogramar");
 
-    if (btnWhatsApp) {
+// CONFIRMAR ASISTENCIA
+if (btnWhatsApp) {
 
-        btnWhatsApp.onclick = function () {
+    btnWhatsApp.onclick = function () {
 
-            const texto =
-                "Hola Adriana 🌸\n\n" +
-                "Queda confirmada mi asistencia a la siguiente cita en Selah Alma Bonita.\n\n" +
-                "👤 Paciente: " +
-                (paciente.nombre || "") +
-                "\n\n" +
-                "📅 Fecha: " +
-                (paciente.fecha || "") +
-                "\n\n" +
-                "🕙 Hora: " +
-                (paciente.hora || "") +
-                "\n\n" +
-                "🌿 Terapia: " +
-                (paciente.terapia || "") +
-                "\n\n" +
-                "Gracias por acompañarme en este proceso de bienestar y sanación. 🌸\n\n" +
-                "Nos vemos muy pronto. ✨";
+        const texto =
+            "Hola Adriana 🌸\n\n" +
+            "Queda confirmada mi asistencia a la siguiente cita en Selah Alma Bonita.\n\n" +
+            "👤 Paciente: " +
+            (paciente.nombre || "") +
+            "\n\n" +
+            "📅 Fecha: " +
+            (paciente.fecha || "") +
+            "\n\n" +
+            "🕙 Hora: " +
+            (paciente.hora || "") +
+            "\n\n" +
+            "🌿 Terapia: " +
+            (paciente.terapia || "") +
+            "\n\n" +
+            "Gracias por acompañarme en este proceso de bienestar y sanación. 🌸\n\n" +
+            "Nos vemos muy pronto. ✨";
 
-            abrir(
-                "https://wa.me/" +
-                (CONFIG.whatsapp?.telefono || "") +
-                "?text=" +
-                encodeURIComponent(texto)
-            );
-        };
-    }
+        abrir(
+            "https://wa.me/" +
+            (CONFIG.whatsapp?.telefono || "") +
+            "?text=" +
+            encodeURIComponent(texto)
+        );
+    };
+}
+
+
+// ==================================================
+// REPROGRAMAR CITA
+// ==================================================
+
+if (btnReprogramar) {
+
+    btnReprogramar.onclick = function () {
+
+        const texto =
+            "Hola Adriana 🌸\n\n" +
+            "Necesito reprogramar mi cita en Selah Alma Bonita.\n\n" +
+            "👤 Paciente: " +
+            (paciente.nombre || "") +
+            "\n\n" +
+            "📅 Cita actual: " +
+            (paciente.fecha || "") +
+            "\n\n" +
+            "🕙 Hora: " +
+            (paciente.hora || "") +
+            "\n\n" +
+            "🌿 Terapia: " +
+            (paciente.terapia || "") +
+            "\n\n" +
+            "¿Me ayudas por favor a encontrar una nueva fecha y horario? 🌸";
+
+        abrir(
+            "https://wa.me/" +
+            (CONFIG.whatsapp?.telefono || "") +
+            "?text=" +
+            encodeURIComponent(texto)
+        );
+    };
+}
 
     // ==================================================
     // GOOGLE MAPS
