@@ -160,11 +160,22 @@ if (tituloBienvenida) {
 }
     
     if (saludoElemento) {
-        saludoElemento.innerHTML =
-            saludoPaciente() +
-            "<br><br>" +
-            "Nos llena de alegría recibirte en Selah Alma Bonita. 🌸";
+
+    let nombreMostrar = paciente.nombre || "";
+
+    if (paciente.tratamiento === "sr") {
+        nombreMostrar = "Sr. " + nombreMostrar;
     }
+
+    if (paciente.tratamiento === "sra") {
+        nombreMostrar = "Sra. " + nombreMostrar;
+    }
+
+    saludoElemento.innerHTML =
+        "<strong>" + nombreMostrar + "</strong>" +
+        "<br><br>" +
+        "Nos llena de alegría recibirte en Selah Alma Bonita. 🌸";
+}
 
     // ==================================================
     // DATOS DE LA CITA
