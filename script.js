@@ -164,12 +164,50 @@ if (tituloBienvenida) {
     
     if (saludoElemento) {
 
-    let nombreMostrar = paciente.nombre || "";
+    if (esPaginaGeneral) {
 
-    if (paciente.tratamiento === "sr") {
-        nombreMostrar = "Sr. " + nombreMostrar;
+        saludoElemento.innerHTML =
+            "Un espacio creado para detenerte, respirar, sanar y florecer. 🌸";
+
+    } else {
+
+        let nombreMostrar = paciente.nombre || "";
+
+        if (paciente.tratamiento === "sr") {
+            nombreMostrar = "Sr. " + nombreMostrar;
+        }
+
+        if (paciente.tratamiento === "sra") {
+            nombreMostrar = "Sra. " + nombreMostrar;
+        }
+
+        saludoElemento.innerHTML =
+            "<strong>" + nombreMostrar + "</strong>" +
+            "<br><br>" +
+            "Nos llena de alegría recibirte en Selah Alma Bonita. 🌸";
+    }
+}
+
+    if (esPaginaGeneral) {
+
+    const citaGeneral = document.querySelector(".cita");
+
+    if (citaGeneral) {
+        citaGeneral.style.display = "none";
     }
 
+    const btnConfirmar = document.getElementById("btnWhatsApp");
+    const btnCalendarioGeneral = document.getElementById("btnCalendario");
+
+    if (btnConfirmar) {
+        btnConfirmar.style.display = "none";
+    }
+
+    if (btnCalendarioGeneral) {
+        btnCalendarioGeneral.style.display = "none";
+    }
+}
+    
     if (paciente.tratamiento === "sra") {
         nombreMostrar = "Sra. " + nombreMostrar;
     }
