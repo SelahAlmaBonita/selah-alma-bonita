@@ -146,7 +146,19 @@ if (codigoPaciente) {
     }
 
     const saludoElemento = document.querySelector(".saludo");
+    const tituloBienvenida = document.getElementById("tituloBienvenida");
+     
+if (tituloBienvenida) {
 
+    if (paciente.categoria === "niño") {
+        tituloBienvenida.textContent = "🌸 ¡Qué gusto recibirte!";
+    } else if (paciente.genero === "masculino") {
+        tituloBienvenida.textContent = "🌸 Bienvenido";
+    } else {
+        tituloBienvenida.textContent = "🌸 Bienvenida";
+    }
+}
+    
     if (saludoElemento) {
         saludoElemento.innerHTML =
             saludoPaciente() +
