@@ -512,11 +512,17 @@ if (
 const preparacionBox = document.createElement("div");
 preparacionBox.className = "tarjeta";
 
-// Texto personalizado según género
+// Personalización según género
 const palabraHidratacion =
     paciente.genero === "masculino"
         ? "hidratado"
         : "hidratada";
+
+// Terapia en minúsculas para poder reconocerla
+const terapiaActual =
+    String(paciente.terapia || "")
+        .trim()
+        .toLowerCase();
 
 let textoPreparacion =
     "<h3>🌿 Prepárate para tu sesión</h3>" +
@@ -524,12 +530,46 @@ let textoPreparacion =
     "<p>👕 Usa ropa cómoda.</p>" +
     "<p>🍃 Procura comer ligero antes de tu cita.</p>";
 
-// Pantuflas Selah a partir de la segunda sesión
+
+// ==============================================
+// RECOMENDACIÓN SEGÚN TERAPIA
+// ==============================================
+
+if (terapiaActual.includes("biomagnetismo")) {
+
+    textoPreparacion +=
+        "<p>🧲 Para tu sesión de Biomagnetismo, procura venir con ropa cómoda que permita realizar tu terapia con tranquilidad.</p>";
+
+} else if (
+    terapiaActual.includes("desintoxicación") ||
+    terapiaActual.includes("desintoxicacion")
+) {
+
+    textoPreparacion +=
+        "<p>💧 Para tu sesión de Desintoxicación iónica, recuerda mantener una buena hidratación antes y después de tu cita.</p>";
+
+} else if (terapiaActual.includes("auriculoterapia")) {
+
+    textoPreparacion +=
+        "<p>👂 Si ya tienes balines de Auriculoterapia colocados, evita manipularlos o retirarlos antes de tu sesión, salvo que te hayamos indicado lo contrario.</p>";
+}
+
+
+// ==============================================
+// PANTUFLAS SELAH
+// Desde la segunda sesión
+// ==============================================
+
 if ((Number(paciente.sesiones) || 0) >= 1) {
 
     textoPreparacion +=
         "<p>🩷 <strong>Recuerda traer tus pantuflas Selah.</strong></p>";
 }
+
+
+// ==============================================
+// CIERRE
+// ==============================================
 
 textoPreparacion +=
     "<p>✨ Regálate unos minutos para llegar con calma.</p>";
