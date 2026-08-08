@@ -432,61 +432,61 @@ if (citaVencida && !esPaginaGeneral) {
     }
 
     // ==================================================
-    // CUMPLEAÑOS
-    // ==================================================
+// CUMPLEAÑOS
+// ==================================================
 
-    const cumpleBox = $("cumpleBox");
-    const cumpleConfig = CONFIG.cumpleanos || {};
+const cumpleBox = $("cumpleBox");
+const cumpleConfig = CONFIG.cumpleanos || {};
 
-    if (cumpleBox) {
+if (cumpleBox) {
 
-        ocultar("cumpleBox");
+    ocultar("cumpleBox");
 
-        if (
-            cumpleConfig.activo === true &&
+    if (
+        cumpleConfig.activo === true &&
+        paciente.cumpleanos
+    ) {
+
+        const partes = String(
             paciente.cumpleanos
-        ) {
+        )
+            .trim()
+            .split(/[-/]/)
+            .map(Number);
 
-            const partes = String(
-                paciente.cumpleanos
-            )
-                .trim()
-                .split(/[-/]/)
-                .map(Number);
+        if (partes.length >= 2) {
 
-            if (partes.length >= 2) {
+            const dia = partes[0];
+            const mes = partes[1];
 
-                const dia = partes[0];
-                const mes = partes[1];
+            const hoy = new Date();
 
-                const hoy = new Date();
+            const esCumple =
+                hoy.getMonth() + 1 === mes &&
+                hoy.getDate() === dia;
 
-                const esCumple =
-                    hoy.getMonth() + 1 === mes &&
-                    hoy.getDate() === dia;
+            if (esCumple) {
 
-                if (esCumple) {
+                const primerNombre =
+                    (paciente.nombre || "")
+                        .trim()
+                        .split(/\s+/)[0];
 
-                    const primerNombre =
-    primerNombre +
-        .trim()
-        .split(/\s+/)[0];
-                    
-                    cumpleBox.innerHTML =
-                        '<div class="tarjetaPremium">' +
-                        "<h2>🎂 ¡Feliz cumpleaños, " +
-                        (paciente.nombre || "") +
-                        "! 🌸</h2>" +
-                        "<p>" +
-                        (cumpleConfig.mensaje || "") +
-                        "</p>" +
-                        "</div>";
+                cumpleBox.innerHTML =
+                    '<div class="tarjetaPremium">' +
+                    "<h2>🎂 ¡Feliz cumpleaños, " +
+                    primerNombre +
+                    "! 🌸</h2>" +
+                    "<p>" +
+                    (cumpleConfig.mensaje || "") +
+                    "</p>" +
+                    "</div>";
 
-                    mostrar("cumpleBox");
-                }
+                mostrar("cumpleBox");
             }
         }
     }
+}
 
     // ==================================================
     // PROMOCIÓN
