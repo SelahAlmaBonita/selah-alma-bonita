@@ -365,6 +365,27 @@ if (
     procesoCompletado
 ) {
 
+        const btnConfirmarCompletado =
+        document.getElementById("btnWhatsApp");
+
+    const btnReprogramarCompletado =
+        document.getElementById("btnReprogramar");
+
+    const btnCalendarioCompletado =
+        document.getElementById("btnCalendario");
+
+    if (btnConfirmarCompletado) {
+        btnConfirmarCompletado.style.display = "none";
+    }
+
+    if (btnReprogramarCompletado) {
+        btnReprogramarCompletado.style.display = "none";
+    }
+
+    if (btnCalendarioCompletado) {
+        btnCalendarioCompletado.style.display = "none";
+    }
+    
     if (citaContenedor) {
 
         citaContenedor.innerHTML = `
