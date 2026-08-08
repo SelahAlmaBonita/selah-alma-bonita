@@ -3,7 +3,7 @@
 // SCRIPT PRINCIPAL — VERSIÓN LIMPIA Y ESTABLE
 // ======================================================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
 
     // ==================================================
     // COMPROBACIÓN
