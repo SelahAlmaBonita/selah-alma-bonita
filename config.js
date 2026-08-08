@@ -36,7 +36,7 @@ const PACIENTE = {
 // CONEXIÓN SUPABASE
 // ======================================================
 
-const SUPABASE_URL = "PEGA_AQUI_TU_API_URL";
+const SUPABASE_URL = "https://burhecszxrenflqkldgv.supabase.co/rest/v1/";
 const SUPABASE_KEY = "sb_publishable_ozdUMIzFlsLGyvyjEdd5uA_QA0GD-7w";
 
 const CONFIG = {
