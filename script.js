@@ -762,7 +762,408 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-aaaaaaa
+// ==================================================
+// HISTORIA SELAH PREMIUM
+// ==================================================
+
+const btnHistoria = $("btnHistoria");
+const historiaBox = $("historiaBox");
+
+if (btnHistoria && historiaBox) {
+
+    btnHistoria.onclick = () => {
+
+        historiaBox.innerHTML = `
+            <div class="historiaContenedor">
+
+                <h2>📸 Mi momento Selah</h2>
+
+                <p>
+                    Comparte un recuerdo de tu experiencia
+                    en Selah Alma Bonita. 🌸
+                </p>
+
+                <textarea
+                    id="textoHistoria"
+                    class="historiaTexto"
+                    placeholder="Escribe aquí cómo fue tu experiencia..."
+                ></textarea>
+
+                <label
+                    for="fotoHistoria"
+                    class="botonFoto">
+                    📷 Elegir una foto
+                </label>
+
+                <input
+                    id="fotoHistoria"
+                    type="file"
+                    accept="image/*"
+                    style="display:none;"
+                >
+
+                <div
+                    id="vistaHistoria"
+                    class="historiaTarjeta">
+
+                    <p>
+                        Mi momento de bienestar
+                        en Selah Alma Bonita. 🌸
+                    </p>
+
+                    <strong>
+                        ✨ Selah Alma Bonita
+                    </strong>
+
+                    <br>
+
+                    Detente, respira, sana y florece
+
+                </div>
+
+                <button
+                    id="compartirHistoria"
+                    type="button">
+
+                    📲 Compartir mi historia
+
+                </button>
+
+                <button
+                    id="cerrarHistoria"
+                    type="button">
+
+                    ✕ Cerrar
+
+                </button>
+
+            </div>
+        `;
+
+        mostrar("historiaBox");
+
+        const textoHistoria = $("textoHistoria");
+        const fotoHistoria = $("fotoHistoria");
+        const vistaHistoria = $("vistaHistoria");
+        const compartirHistoria = $("compartirHistoria");
+        const cerrarHistoria = $("cerrarHistoria");
+
+        // ==========================================
+        // ACTUALIZAR HISTORIA
+        // ==========================================
+
+        function actualizarHistoria() {
+
+            const texto =
+                textoHistoria?.value?.trim() ||
+                "Mi momento de bienestar en Selah Alma Bonita. 🌸";
+
+            const imagen =
+                vistaHistoria.dataset.imagen || "";
+
+            vistaHistoria.innerHTML = `
+
+                ${
+                    imagen
+                    ?
+                    `
+                    <img
+                        src="${imagen}"
+                        alt="Mi experiencia en Selah Alma Bonita"
+                        style="
+                            width:100%;
+                            border-radius:20px;
+                            margin-bottom:15px;
+                            display:block;
+                        "
+                    >
+                    `
+                    :
+                    ""
+                }
+
+                <p>
+                    "${texto
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;")
+                    }"
+                </p>
+
+                <div style="
+                    margin-top:15px;
+                    font-weight:600;
+                ">
+                    ✨ Selah Alma Bonita
+                </div>
+
+                <div style="
+                    margin-top:5px;
+                    font-size:14px;
+                ">
+                    Detente, respira, sana y florece
+                </div>
+
+                <div style="
+                    margin-top:10px;
+                    font-size:13px;
+                ">
+                    #SelahAlmaBonita
+                </div>
+            `;
+        }
+
+        // ==========================================
+        // TEXTO
+        // ==========================================
+
+        if (textoHistoria) {
+
+            textoHistoria.addEventListener(
+                "input",
+                actualizarHistoria
+            );
+        }
+
+        // ==========================================
+        // FOTO
+        // ==========================================
+
+        if (fotoHistoria) {
+
+            fotoHistoria.addEventListener(
+                "change",
+                () => {
+
+                    const archivo =
+                        fotoHistoria.files?.[0];
+
+                    if (!archivo) return;
+
+                    if (!archivo.type.startsWith("image/")) {
+
+                        alert(
+                            "Por favor selecciona una imagen."
+                        );
+
+                        return;
+                    }
+
+                    const lector =
+                        new FileReader();
+
+                    lector.onload = (evento) => {
+
+                        vistaHistoria.dataset.imagen =
+                            evento.target.result;
+
+                        actualizarHistoria();
+                    };
+
+                    lector.readAsDataURL(
+                        archivo
+                    );
+                }
+            );
+        }
+
+        // ==========================================
+        // CERRAR
+        // ==========================================
+
+        if (cerrarHistoria) {
+
+            cerrarHistoria.onclick = () => {
+
+                ocultar("historiaBox");
+            };
+        }
+
+        // ==========================================
+        // COMPARTIR
+        // ==========================================
+
+        if (compartirHistoria) {
+
+            compartirHistoria.onclick =
+                async () => {
+
+                    if (
+                        typeof html2canvas ===
+                        "undefined"
+                    ) {
+
+                        alert(
+                            "No se pudo cargar el creador de historias."
+                        );
+
+                        return;
+                    }
+
+                    try {
+
+                        compartirHistoria.disabled = true;
+
+                        compartirHistoria.textContent =
+                            "✨ Preparando mi historia...";
+
+                        const canvas =
+                            await html2canvas(
+                                vistaHistoria,
+                                {
+                                    backgroundColor:
+                                        "#fffafc",
+
+                                    scale:
+                                        Math.min(
+                                            window.devicePixelRatio || 1,
+                                            2
+                                        ),
+
+                                    useCORS: true
+                                }
+                            );
+
+                        canvas.toBlob(
+                            async (blob) => {
+
+                                if (!blob) {
+
+                                    compartirHistoria.disabled = false;
+
+                                    compartirHistoria.textContent =
+                                        "📲 Compartir mi historia";
+
+                                    alert(
+                                        "No fue posible crear la imagen."
+                                    );
+
+                                    return;
+                                }
+
+                                const archivo =
+                                    new File(
+                                        [blob],
+                                        "Mi-Momento-Selah.png",
+                                        {
+                                            type:
+                                                "image/png"
+                                        }
+                                    );
+
+                                // ==================================
+                                // COMPARTIR NATIVAMENTE
+                                // En iPhone/iPad abre el menú de
+                                // compartir y permite elegir
+                                // Instagram, WhatsApp, etc.
+                                // ==================================
+
+                                if (
+                                    navigator.share &&
+                                    navigator.canShare &&
+                                    navigator.canShare({
+                                        files: [archivo]
+                                    })
+                                ) {
+
+                                    try {
+
+                                        await navigator.share({
+
+                                            title:
+                                                "Mi momento Selah",
+
+                                            text:
+                                                "Mi experiencia en Selah Alma Bonita 🌸✨ #SelahAlmaBonita",
+
+                                            files:
+                                                [archivo]
+                                        });
+
+                                    } catch (error) {
+
+                                        // El usuario simplemente
+                                        // cerró el menú de compartir.
+                                        console.log(
+                                            "Compartir cancelado:",
+                                            error
+                                        );
+                                    }
+
+                                } else {
+
+                                    // ==================================
+                                    // RESPALDO PARA DISPOSITIVOS
+                                    // SIN COMPARTIR NATIVO
+                                    // ==================================
+
+                                    const url =
+                                        URL.createObjectURL(
+                                            blob
+                                        );
+
+                                    const ventana =
+                                        window.open(
+                                            url,
+                                            "_blank"
+                                        );
+
+                                    if (!ventana) {
+
+                                        alert(
+                                            "Tu dispositivo no permite abrir la imagen para compartirla."
+                                        );
+
+                                    } else {
+
+                                        alert(
+                                            "La imagen está lista. Puedes mantenerla presionada para guardarla y compartirla en Instagram o WhatsApp."
+                                        );
+                                    }
+
+                                    setTimeout(
+                                        () => {
+                                            URL.revokeObjectURL(
+                                                url
+                                            );
+                                        },
+                                        60000
+                                    );
+                                }
+
+                                compartirHistoria.disabled =
+                                    false;
+
+                                compartirHistoria.textContent =
+                                    "📲 Compartir mi historia";
+
+                            },
+                            "image/png"
+                        );
+
+                    } catch (error) {
+
+                        console.error(
+                            "Error creando historia:",
+                            error
+                        );
+
+                        compartirHistoria.disabled =
+                            false;
+
+                        compartirHistoria.textContent =
+                            "📲 Compartir mi historia";
+
+                        alert(
+                            "No fue posible crear la historia. Intenta nuevamente."
+                        );
+                    }
+                };
+        }
+
+        // Mostrar inicialmente
+        actualizarHistoria();
+    };
+}
 
     // ==================================================
     // FINAL
