@@ -106,7 +106,7 @@ const CONFIG = {
     // ==================================================
 
     maps: {
-    url: "https://maps.app.goo.gl/VhJkaTR41VdbFVhr7?g_st=ic"
+    url: "https://www.google.com/maps/search/?api=1&query=Av.+Madero+548+Int.+109,+Zona+Centro,+Tijuana,+Baja+California"
 },
 
 
