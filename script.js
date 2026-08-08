@@ -296,6 +296,27 @@ if (
     !procesoCompletado
 ) {
 
+        const btnConfirmarVencida =
+        document.getElementById("btnWhatsApp");
+
+    const btnReprogramarVencida =
+        document.getElementById("btnReprogramar");
+
+    const btnCalendarioVencida =
+        document.getElementById("btnCalendario");
+
+    if (btnConfirmarVencida) {
+        btnConfirmarVencida.style.display = "none";
+    }
+
+    if (btnReprogramarVencida) {
+        btnReprogramarVencida.style.display = "none";
+    }
+
+    if (btnCalendarioVencida) {
+        btnCalendarioVencida.style.display = "none";
+    }
+    
     if (citaContenedor) {
 
         citaContenedor.innerHTML = `
