@@ -329,8 +329,8 @@ if (citaVencida && !esPaginaGeneral) {
 }
 
     // ==================================================
-// RECORDATORIO Y PREPARACIÓN PARA LA CITA
-// ==================================================
+    // RECORDATORIO Y PREPARACIÓN PARA LA CITA
+    // ==================================================
 
 if (
     !esPaginaGeneral &&
@@ -416,31 +416,61 @@ if (
 }
     
     // ==================================================
-    // PROGRESO
+    // PROGRESO INTELIGENTE
     // ==================================================
 
-    const barraProgreso = $("barraProgreso");
-    const textoProgreso = $("textoProgreso");
+const barraProgreso = $("barraProgreso");
+const textoProgreso = $("textoProgreso");
 
-    if (barraProgreso && textoProgreso) {
+if (barraProgreso && textoProgreso && !esPaginaGeneral) {
 
-        const sesiones = Number(paciente.sesiones) || 0;
-        const objetivo = Number(paciente.objetivo) || 1;
+    const sesiones = Number(paciente.sesiones) || 0;
+    const objetivo = Number(paciente.objetivo) || 1;
 
-        const porcentaje = Math.min(
-            100,
-            Math.max(0, (sesiones / objetivo) * 100)
-        );
+    const porcentaje = Math.min(
+        100,
+        Math.max(0, (sesiones / objetivo) * 100)
+    );
 
-        barraProgreso.style.width = porcentaje + "%";
+    barraProgreso.style.width = porcentaje + "%";
 
-        textoProgreso.textContent =
-            sesiones +
-            " de " +
-            objetivo +
-            " sesiones completadas 🌸";
+    let mensajeProgreso = "";
+
+    if (sesiones === 0) {
+
+        mensajeProgreso =
+            "🌱 Tu proceso comienza aquí.";
+
+    } else if (sesiones >= objetivo) {
+
+        mensajeProgreso =
+            "✨ ¡Has completado tu proceso inicial! Gracias por permitirnos acompañarte en este camino. 🌸";
+
+    } else if (porcentaje >= 80) {
+
+        mensajeProgreso =
+            "🌷 Estás muy cerca de completar tu proceso.";
+
+    } else if (porcentaje >= 50) {
+
+        mensajeProgreso =
+            "🌿 Ya recorriste más de la mitad de tu camino.";
+
+    } else {
+
+        mensajeProgreso =
+            "🌸 Cada sesión es un paso más en tu proceso.";
     }
 
+    textoProgreso.innerHTML =
+        "<strong>" +
+        sesiones +
+        " de " +
+        objetivo +
+        " sesiones completadas</strong>" +
+        "<br><br>" +
+        mensajeProgreso;
+}
     // ==================================================
     // MENSAJE DEL DÍA
     // ==================================================
