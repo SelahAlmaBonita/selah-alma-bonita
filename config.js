@@ -32,6 +32,13 @@ const PACIENTE = {
 // 🚫 NO CAMBIAR PARA CADA PACIENTE
 // ======================================================
 
+// ======================================================
+// CONEXIÓN SUPABASE
+// ======================================================
+
+const SUPABASE_URL = "PEGA_AQUI_TU_API_URL";
+const SUPABASE_KEY = "PEGA_AQUI_TU_PUBLISHABLE_KEY";
+
 const CONFIG = {
 
     // ==================================================
