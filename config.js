@@ -62,7 +62,7 @@ const CONFIG = {
     // ==================================================
 
     cumpleanos: {
-        activo: false,
+        activo: true,
 
         mensaje:
             "¡Feliz cumpleaños! Que este nuevo año esté lleno de salud, paz y bienestar. Gracias por permitirnos acompañarte. 🌸"
