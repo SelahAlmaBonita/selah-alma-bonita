@@ -217,7 +217,7 @@ const horaCita = $("horaCita");
 const duracionCita = $("duracionCita");
 const citaContenedor = document.querySelector(".cita");
 
-function convertirFechaCita(fechaTexto, horaTexto) {
+function convertirFechaCita(fechaTexto) {
 
     if (!fechaTexto) return null;
 
@@ -236,9 +236,10 @@ function convertirFechaCita(fechaTexto, horaTexto) {
         diciembre: 11
     };
 
-    const matchFecha = fechaTexto
+    const matchFecha = String(fechaTexto)
+        .trim()
         .toLowerCase()
-        .match(/(\d{1,2})\s+de\s+([a-záéíóú]+)/);
+        .match(/(\d{1,2})\s+de\s+([a-záéíóúñ]+)/);
 
     if (!matchFecha) return null;
 
@@ -247,62 +248,27 @@ function convertirFechaCita(fechaTexto, horaTexto) {
 
     if (mes === undefined) return null;
 
-    let hora = 23;
-    let minutos = 59;
+    const hoy = new Date();
 
-    if (horaTexto) {
-
-        const matchHora = horaTexto
-            .toLowerCase()
-            .match(/(\d{1,2})(?::(\d{2}))?\s*(a\.?\s*m\.?|p\.?\s*m\.?)/);
-
-        if (matchHora) {
-
-            hora = Number(matchHora[1]);
-            minutos = Number(matchHora[2] || 0);
-
-            const indicador = matchHora[3]
-                .replace(/\s/g, "")
-                .replace(/\./g, "");
-
-            const esPM = indicador === "pm";
-
-            if (esPM && hora < 12) {
-                hora += 12;
-            }
-
-            if (!esPM && hora === 12) {
-                hora = 0;
-            }
-        }
-    }
-
-    const ahora = new Date();
-    let anio = ahora.getFullYear();
-
-    let fechaCitaReal = new Date(
-        anio,
+    return new Date(
+        hoy.getFullYear(),
         mes,
         dia,
-        hora,
-        minutos
+        23,
+        59,
+        59
     );
-
-    return fechaCitaReal;
 }
 
-const fechaRealCita = convertirFechaCita(
-    paciente.fecha || "",
-    paciente.hora || ""
-);
+const fechaRealCita =
+    convertirFechaCita(paciente.fecha || "");
 
-const ahora = new Date();
+const hoyInicio = new Date();
+hoyInicio.setHours(0, 0, 0, 0);
 
 const citaVencida =
-    fechaRealCita &&
-    fechaRealCita < ahora;
-
-if (citaVencida && !esPaginaGeneral) {
+    fechaRealCita !== null &&
+    fechaRealCita < hoyInicio;
 
     if (citaContenedor) {
 
