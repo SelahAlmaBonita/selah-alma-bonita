@@ -467,6 +467,11 @@ if (citaVencida && !esPaginaGeneral) {
 
                 if (esCumple) {
 
+                    const primerNombre =
+    primerNombre +
+        .trim()
+        .split(/\s+/)[0];
+                    
                     cumpleBox.innerHTML =
                         '<div class="tarjetaPremium">' +
                         "<h2>🎂 ¡Feliz cumpleaños, " +
