@@ -461,9 +461,27 @@ if (cumpleBox) {
 
             const hoy = new Date();
 
-            const esCumple =
-                hoy.getMonth() + 1 === mes &&
-                hoy.getDate() === dia;
+            const anioActual = hoy.getFullYear();
+
+const esBisiesto =
+    (anioActual % 4 === 0 && anioActual % 100 !== 0) ||
+    (anioActual % 400 === 0);
+
+let esCumple =
+    hoy.getMonth() + 1 === mes &&
+    hoy.getDate() === dia;
+
+// Caso especial: personas nacidas el 29 de febrero.
+// En años no bisiestos se felicitan el 28 de febrero.
+if (
+    dia === 29 &&
+    mes === 2 &&
+    !esBisiesto
+) {
+    esCumple =
+        hoy.getMonth() + 1 === 2 &&
+        hoy.getDate() === 28;
+}
 
             if (esCumple) {
 
