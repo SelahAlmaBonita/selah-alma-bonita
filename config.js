@@ -37,7 +37,7 @@ const PACIENTE = {
 // ======================================================
 
 const SUPABASE_URL = "PEGA_AQUI_TU_API_URL";
-const SUPABASE_KEY = "PEGA_AQUI_TU_PUBLISHABLE_KEY";
+const SUPABASE_KEY = "sb_publishable_ozdUMIzFlsLGyvyjEdd5uA_QA0GD-7w";
 
 const CONFIG = {
 
