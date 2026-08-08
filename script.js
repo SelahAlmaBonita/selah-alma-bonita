@@ -326,8 +326,8 @@ if (tituloBienvenida) {
 
             if (partes.length >= 2) {
 
-                const mes = partes[0];
-                const dia = partes[1];
+                const dia = partes[0];
+                const mes = partes[1];
 
                 const hoy = new Date();
 
