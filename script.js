@@ -209,7 +209,7 @@ if (tituloBienvenida) {
 }
 
 // ==================================================
-// DATOS DE LA CITA
+// DATOS DE LA CITA — VERSIÓN DEFINITIVA
 // ==================================================
 
 const fechaCita = $("fechaCita");
@@ -260,6 +260,11 @@ function convertirFechaCita(fechaTexto) {
     );
 }
 
+
+// ==================================================
+// COMPROBAR ESTADO DE LA CITA
+// ==================================================
+
 const fechaRealCita =
     convertirFechaCita(paciente.fecha || "");
 
@@ -270,12 +275,27 @@ const citaVencida =
     fechaRealCita !== null &&
     fechaRealCita < hoyInicio;
 
+const sesionesRealizadas =
+    Number(paciente.sesiones) || 0;
+
+const objetivoSesiones =
+    Number(paciente.objetivo) || 0;
+
+const procesoCompletado =
+    objetivoSesiones > 0 &&
+    sesionesRealizadas >= objetivoSesiones;
+
+
+// ==================================================
+// CASO 1 — CITA PASADA Y PROCESO INCOMPLETO
+// ==================================================
+
 if (
     citaVencida &&
     !esPaginaGeneral &&
-    Number(paciente.sesiones || 0) < Number(paciente.objetivo || 0)
+    !procesoCompletado
 ) {
-    
+
     if (citaContenedor) {
 
         citaContenedor.innerHTML = `
@@ -313,6 +333,64 @@ if (
         };
     }
 
+
+// ==================================================
+// CASO 2 — CITA PASADA Y PROCESO COMPLETADO
+// ==================================================
+
+} else if (
+    citaVencida &&
+    !esPaginaGeneral &&
+    procesoCompletado
+) {
+
+    if (citaContenedor) {
+
+        citaContenedor.innerHTML = `
+            <h3>✨ ¡Has completado tu proceso inicial!</h3>
+
+            <p>
+                Gracias por permitirnos acompañarte en este camino.
+                Cada paso que has dado forma parte de tu bienestar. 🌸
+            </p>
+
+            <p>
+                Si deseas seguir cuidándote, puedes continuar
+                con sesiones de mantenimiento. 🌿
+            </p>
+
+            <button
+                type="button"
+                id="btnMantenimiento">
+                🌿 Continuar con mantenimiento
+            </button>
+        `;
+    }
+
+    const btnMantenimiento =
+        document.getElementById("btnMantenimiento");
+
+    if (btnMantenimiento) {
+
+        btnMantenimiento.onclick = function () {
+
+            const mensaje =
+                "Hola Adriana 🌸 He completado mi proceso inicial en Selah Alma Bonita y me gustaría recibir información para continuar con sesiones de mantenimiento.";
+
+            abrir(
+                "https://wa.me/" +
+                (CONFIG.whatsapp?.telefono || "") +
+                "?text=" +
+                encodeURIComponent(mensaje)
+            );
+        };
+    }
+
+
+// ==================================================
+// CASO 3 — CITA ACTUAL O FUTURA
+// ==================================================
+
 } else {
 
     if (fechaCita) {
@@ -331,7 +409,6 @@ if (
             (paciente.duracion || "");
     }
 }
-
     // ==================================================
     // RECORDATORIO Y PREPARACIÓN PARA LA CITA
     // ==================================================
