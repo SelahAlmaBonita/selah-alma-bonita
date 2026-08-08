@@ -327,6 +327,94 @@ if (citaVencida && !esPaginaGeneral) {
             (paciente.duracion || "");
     }
 }
+
+    // ==================================================
+// RECORDATORIO Y PREPARACIÓN PARA LA CITA
+// ==================================================
+
+if (
+    !esPaginaGeneral &&
+    fechaRealCita &&
+    !citaVencida
+) {
+
+    const hoyRecordatorio = new Date();
+    hoyRecordatorio.setHours(0, 0, 0, 0);
+
+    const fechaRecordatorio = new Date(fechaRealCita);
+    fechaRecordatorio.setHours(0, 0, 0, 0);
+
+    const diferenciaDias = Math.round(
+        (fechaRecordatorio - hoyRecordatorio) /
+        (1000 * 60 * 60 * 24)
+    );
+
+    let mensajeRecordatorio = "";
+
+    if (diferenciaDias === 0) {
+        mensajeRecordatorio =
+            "🌸 ¡Hoy es tu cita! Te esperamos con mucho cariño.";
+    } else if (diferenciaDias === 1) {
+        mensajeRecordatorio =
+            "✨ ¡Mañana es tu cita! Nos dará mucho gusto recibirte.";
+    } else if (diferenciaDias === 2) {
+        mensajeRecordatorio =
+            "🌸 Faltan 2 días para tu cita.";
+    } else if (diferenciaDias === 3) {
+        mensajeRecordatorio =
+            "🌸 Faltan 3 días para tu cita.";
+    }
+
+    if (mensajeRecordatorio) {
+
+        const recordatorioBox = document.createElement("div");
+        recordatorioBox.className = "tarjeta";
+
+        recordatorioBox.innerHTML =
+            "<h3>🗓️ Tu cita se acerca</h3>" +
+            "<p>" + mensajeRecordatorio + "</p>";
+
+        if (citaContenedor) {
+            citaContenedor.insertAdjacentElement(
+                "afterend",
+                recordatorioBox
+            );
+        }
+    }
+
+    // ==============================================
+    // PREPARACIÓN PARA LA SESIÓN
+    // ==============================================
+
+    const preparacionBox = document.createElement("div");
+    preparacionBox.className = "tarjeta";
+
+    let textoPreparacion =
+        "<h3>🌿 Prepárate para tu sesión</h3>" +
+        "<p>💧 Mantente bien hidratado/a.</p>" +
+        "<p>👗 Usa ropa cómoda.</p>" +
+        "<p>🍃 Procura comer ligero antes de tu cita.</p>";
+
+    // Pantuflas a partir de la segunda sesión
+    if ((Number(paciente.sesiones) || 0) >= 1) {
+
+        textoPreparacion +=
+            "<p>🩷 <strong>Recuerda traer tus pantuflas Selah.</strong></p>";
+    }
+
+    textoPreparacion +=
+        "<p>✨ Regálate unos minutos para llegar con calma.</p>";
+
+    preparacionBox.innerHTML = textoPreparacion;
+
+    if (citaContenedor) {
+        citaContenedor.insertAdjacentElement(
+            "afterend",
+            preparacionBox
+        );
+    }
+}
+    
     // ==================================================
     // PROGRESO
     // ==================================================
