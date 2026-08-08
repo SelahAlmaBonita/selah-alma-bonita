@@ -25,7 +25,8 @@ let paciente = CONFIG.paciente || {};
 // Leer el código personal desde el enlace
 const parametros = new URLSearchParams(window.location.search);
 const codigoPaciente = parametros.get("p");
-
+const esPaginaGeneral = !codigoPaciente;
+    
 if (codigoPaciente) {
 
     try {
@@ -150,7 +151,9 @@ if (codigoPaciente) {
      
 if (tituloBienvenida) {
 
-    if (paciente.categoria === "niño") {
+    if (esPaginaGeneral) {
+        tituloBienvenida.textContent = "🌸 Bienvenidos a Selah Alma Bonita";
+    } else if (paciente.categoria === "niño") {
         tituloBienvenida.textContent = "🌸 ¡Qué gusto recibirte!";
     } else if (paciente.genero === "masculino") {
         tituloBienvenida.textContent = "🌸 Bienvenido";
