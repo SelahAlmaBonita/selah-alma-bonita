@@ -106,8 +106,8 @@ const CONFIG = {
     // ==================================================
 
     maps: {
-        url: "https://maps.app.goo.gl/nvW6SGQAr4T17DMW7"
-    },
+    url: "https://maps.app.goo.gl/VhJkaTR41VdbFVhr7?g_st=ic"
+},
 
 
     // ==================================================
