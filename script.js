@@ -270,6 +270,8 @@ const citaVencida =
     fechaRealCita !== null &&
     fechaRealCita < hoyInicio;
 
+if (citaVencida && !esPaginaGeneral) {
+
     if (citaContenedor) {
 
         citaContenedor.innerHTML = `
