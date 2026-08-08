@@ -9,7 +9,7 @@
 
 const PACIENTE = {
 
-    nombre: "Blanca Margarita Alarcón",
+    nombre: "Blanca Margarita Alarcón",aaaaaa
     categoria: "adulto",
     genero: "femenino",
 
