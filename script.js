@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 // COMPROBACIÓN Y CARGA DEL PACIENTE
 // ==================================================
 
-console.log("SELAH SCRIPT CARGADO");aaa
+console.log("SELAH SCRIPT CARGADO");
 
 if (typeof CONFIG === "undefined") {
     console.error("ERROR: No se encontró CONFIG.");
