@@ -270,8 +270,12 @@ const citaVencida =
     fechaRealCita !== null &&
     fechaRealCita < hoyInicio;
 
-if (citaVencida && !esPaginaGeneral) {
-
+if (
+    citaVencida &&
+    !esPaginaGeneral &&
+    Number(paciente.sesiones || 0) < Number(paciente.objetivo || 0)
+) {
+    
     if (citaContenedor) {
 
         citaContenedor.innerHTML = `
