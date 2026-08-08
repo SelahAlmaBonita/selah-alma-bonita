@@ -4,26 +4,23 @@
 // ======================================================
 
 // ======================================================
-// ✏️ ÚNICA SECCIÓN QUE CAMBIARÁS POR CADA PACIENTE
+// PACIENTE DE RESPALDO
 // ======================================================
+// Los pacientes reales se cargan desde Supabase
+// mediante su enlace personal.
 
 const PACIENTE = {
-
-    nombre: "Blanca Margarita Alarcón",
-    categoria: "adulto",
-    genero: "femenino",
-
-    fecha: "08 de agosto",
-    hora: "5:00 p. m.",
-    duracion: "60 minutos",
-
-    terapia: "Biomagnetismo",
-
-    sesiones: 1,
-    objetivo: 10,
-
+    nombre: "",
+    categoria: "",
+    genero: "",
+    tratamiento: "",
+    fecha: "",
+    hora: "",
+    duracion: "",
+    terapia: "",
+    sesiones: 0,
+    objetivo: 0,
     cumpleanos: ""
-
 };
 
 
