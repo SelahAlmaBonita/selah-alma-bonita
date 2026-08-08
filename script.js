@@ -212,23 +212,153 @@ if (tituloBienvenida) {
 // DATOS DE LA CITA
 // ==================================================
 
-    const fechaCita = $("fechaCita");
-    const horaCita = $("horaCita");
-    const duracionCita = $("duracionCita");
+const fechaCita = $("fechaCita");
+const horaCita = $("horaCita");
+const duracionCita = $("duracionCita");
+const citaContenedor = document.querySelector(".cita");
+
+function convertirFechaCita(fechaTexto, horaTexto) {
+
+    if (!fechaTexto) return null;
+
+    const meses = {
+        enero: 0,
+        febrero: 1,
+        marzo: 2,
+        abril: 3,
+        mayo: 4,
+        junio: 5,
+        julio: 6,
+        agosto: 7,
+        septiembre: 8,
+        octubre: 9,
+        noviembre: 10,
+        diciembre: 11
+    };
+
+    const matchFecha = fechaTexto
+        .toLowerCase()
+        .match(/(\d{1,2})\s+de\s+([a-záéíóú]+)/);
+
+    if (!matchFecha) return null;
+
+    const dia = Number(matchFecha[1]);
+    const mes = meses[matchFecha[2]];
+
+    if (mes === undefined) return null;
+
+    let hora = 23;
+    let minutos = 59;
+
+    if (horaTexto) {
+
+        const matchHora = horaTexto
+            .toLowerCase()
+            .match(/(\d{1,2})(?::(\d{2}))?\s*(a\.?\s*m\.?|p\.?\s*m\.?)/);
+
+        if (matchHora) {
+
+            hora = Number(matchHora[1]);
+            minutos = Number(matchHora[2] || 0);
+
+            const indicador = matchHora[3]
+                .replace(/\s/g, "")
+                .replace(/\./g, "");
+
+            const esPM = indicador === "pm";
+
+            if (esPM && hora < 12) {
+                hora += 12;
+            }
+
+            if (!esPM && hora === 12) {
+                hora = 0;
+            }
+        }
+    }
+
+    const ahora = new Date();
+    let anio = ahora.getFullYear();
+
+    let fechaCitaReal = new Date(
+        anio,
+        mes,
+        dia,
+        hora,
+        minutos
+    );
+
+    return fechaCitaReal;
+}
+
+const fechaRealCita = convertirFechaCita(
+    paciente.fecha || "",
+    paciente.hora || ""
+);
+
+const ahora = new Date();
+
+const citaVencida =
+    fechaRealCita &&
+    fechaRealCita < ahora;
+
+if (citaVencida && !esPaginaGeneral) {
+
+    if (citaContenedor) {
+
+        citaContenedor.innerHTML = `
+            <h3>🌿 Continúa tu proceso</h3>
+
+            <p>
+                Recuerda agendar tu próxima cita para continuar
+                avanzando en tu bienestar y sanación. 🌸
+            </p>
+
+            <button
+                type="button"
+                id="btnReagendarCita">
+                🗓️ Agendar mi próxima cita
+            </button>
+        `;
+    }
+
+    const btnReagendarCita =
+        document.getElementById("btnReagendarCita");
+
+    if (btnReagendarCita) {
+
+        btnReagendarCita.onclick = function () {
+
+            const mensaje =
+                "Hola Adriana 🌸 Me gustaría agendar mi próxima cita en Selah Alma Bonita.";
+
+            abrir(
+                "https://wa.me/" +
+                (CONFIG.whatsapp?.telefono || "") +
+                "?text=" +
+                encodeURIComponent(mensaje)
+            );
+        };
+    }
+
+} else {
 
     if (fechaCita) {
-        fechaCita.textContent = "📅 " + (paciente.fecha || "");
+        fechaCita.textContent =
+            "📅 " + (paciente.fecha || "");
     }
 
     if (horaCita) {
-        horaCita.textContent = "🕙 " + (paciente.hora || "");
+        horaCita.textContent =
+            "🕙 " + (paciente.hora || "");
     }
 
     if (duracionCita) {
         duracionCita.textContent =
-            "⏱️ Duración: " + (paciente.duracion || "");
+            "⏱️ Duración: " +
+            (paciente.duracion || "");
     }
-
+}
     // ==================================================
     // PROGRESO
     // ==================================================
