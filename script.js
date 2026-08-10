@@ -513,8 +513,13 @@ const preparacionBox = document.createElement("div");
 preparacionBox.className = "tarjeta";
 
 // Personalización según género
+const generoPaciente =
+    String(paciente.genero || "")
+        .trim()
+        .toLowerCase();
+
 const palabraHidratacion =
-    paciente.genero === "masculino"
+    generoPaciente === "masculino"
         ? "hidratado"
         : "hidratada";
 
