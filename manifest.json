@@ -1,17 +1,19 @@
 {
   "name": "Selah Alma Bonita",
   "short_name": "Selah",
-  "description": "Espacio de bienestar integral",
+  "description": "Selah Alma Bonita — Detente, respira, sana y florece",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#fffaf7",
   "theme_color": "#d4af37",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "icon-selah.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
